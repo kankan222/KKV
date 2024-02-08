@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | KKV</title>
+    <link rel="stylesheet" href="/static/SCHOOL/css/main.css" />
+    <link rel="stylesheet" href="/static/SCHOOL/css/file.css" />
+
+    <!-- Icons Css  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+</head>
+<body>
+    <%- include('../partials/school.header.ejs') %>
+    <section class="mt wigin boxContainer contact">
+        <h2 class="uppercase">Contact Us</h2>
+        <div class="flex">
+            <div class="info">
+                <div class="phone">
+                    <i class="uil uil-phone"></i>
+                    <span class="color" onclick="window.open(`tel: 03672232464`)">03672232464</span> |
+                    <span class="color" onclick="window.open(`tel: +91 9954128216`)">9954128216</span> |
+                    <span class="color" onclick="window.open(`tel: +91 9435161539`)">9435161539</span> |
+                    <span class="color" onclick="window.open(`tel: +917002136988 `)">7002136988</span>
+                </div>
+                <div class="location">
+                    <i class="uil uil-location-pin-alt"></i>
+                    <span class="name">School Section(Backside of Nagaon College, G.M Road)</span>
+                    <p class="color name">See on map<i class="uil uil-arrow-up-right"></i></p>
+                    <i class="uil uil-location-pin-alt"></i>
+                    <span class="name">Higher Secondary Section(Head Office)(ADP Road, Christian Patty, Nagaon)</span>
+                    <p class="color name">See on map<i class="uil uil-arrow-up-right"></i></p>
+                    <p class="name">Email: <span class="color">kalongkapilividyapith@gmail.com</span></p>
+                </div>
+            </div>
+            <div class="form">
+                <form action="">
+                    <div class="field">
+                        <label for="">Name</label>
+                        <input type="text" name="" id="cname" >
+                    </div>
+                    <div class="field">
+                        <label for="">Phone Number</label>
+                        <input type="text" name="" id="cnumber">
+                    </div>
+                    <div class="field">
+                        <label for="">Message</label>
+                        <textarea name="" id="cmessage"></textarea>
+                    </div>
+                    <div class="field input">
+                        <a class="btn" onclick="sendMail()">Send&rarr;</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <%- include('../partials/school.footer.ejs') %>
+
+</body>
+</html>

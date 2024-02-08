@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rector's Corner | KKV</title>
+
+    <link rel="stylesheet" href="/static/app/css/main.css" />
+    <link rel="stylesheet" href="/static/app/css/file.css" />
+
+    <!-- Icons Css  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+        <%- include('../partials/nav.ejs') %>
+            <section class="imageGallery boxContainer mt wigin">
+                <h2 class="uppercase">Photo Gallery</h2>
+                <div class="galleryBox flex">
+                    <img src="/static/assets/gallery/image-1.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-2.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-3.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-4.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-5.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-6.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-7.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-8.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-9.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-10.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-11.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-12.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-13.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-14.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-15.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-16.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-17.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-18.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-19.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-20.jpeg" alt="image">
+                </div>
+            </section>
+            <!-- ========================================================================
+    BACKGROUND IMAGE CONTAINER
+    ====================================================================== -->
+            <section class="backgroundBox hide">
+                <div class="imageContainer">
+                    <!-- <span id="closeImg"><i class="uil uil-multiply"></i></span> -->
+                    <img alt="img" id="photoim">
+                </div>
+            </section>
+            <%- include('../partials/footer.ejs') %>
+                <!-- Javascript  -->
+                <script src="/static/app/js/main.js"></script>
+                <script>
+                    Array.from(document.getElementsByTagName('img')).forEach(function (el) {
+                        el.addEventListener('click', () => {
+                            document.querySelector('.backgroundBox').classList.remove(`hide`);
+                            document.querySelector('#photoim').src = el.src;
+                            document.querySelector(`body`).classList.add(`flow`);
+                        })
+                    })
+                    document.querySelector('.backgroundBox').addEventListener('click', () => {
+                        document.querySelector('.backgroundBox').classList.add('hide');
+                        document.querySelector(`body`).classList.remove(`flow`);
+                    })
+                </script>
+</body>
+
+</html>

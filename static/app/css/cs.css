@@ -1,0 +1,145 @@
+.cs, .cshome, .fees{
+    margin-bottom: 2rem;
+}
+.cshome{
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-1);
+    padding: var(--padding-2) var(--padding-rem-3);
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cshome video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(5px);
+}
+.cshome .content{
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    color: var(--white);
+}
+.cshome h1{
+    font-size: 80px;
+    font-weight: 600;
+    color: var(--white);
+}
+.cshome h4{
+    font-size: 25px;
+}
+.csgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.csBox {
+    border: 1px solid var(--black-light);
+    transition: all 300ms ease;
+    cursor: pointer;
+    padding: var(--padding-rem-1);
+    border-radius: var(--border-radius-1);
+}
+
+.csBox:hover {
+    box-shadow: var(--box-shadow-3);
+    border: 1px solid var(--primary-light-color)
+}
+
+.csBox p.uppercase {
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.csBox p {
+    font-weight: 600;
+}
+
+.csBox hr {
+    margin: 10px auto;
+}
+
+.csBox ul li {
+    font-weight: 500;
+}
+
+.cs .background {
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: var(--border-radius-1) var(--border-radius-1) 0 0;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.cs .background h3 {
+    text-align: center;
+    padding: var(--padding-rem-0) 0;
+}
+.short{
+    margin-bottom: 1rem;
+}
+.short ul li{
+    font-weight: 600;
+}
+.fees table tr td{
+    font-weight: 500;
+}
+.cscopy{
+    border-top: 1px solid var(--black);
+    text-align: center;
+    margin-top: 1rem;
+    background: var(--primary-light-color)
+}
+.cscopy .para{
+    padding: 1rem;
+}
+.cscopy span.uppercase{
+    font-weight: 600;
+    cursor: pointer;
+}
+.cscopy span.uppercase:hover{
+    text-decoration: underline;
+ }
+@media(min-aspect-ratio: 16/9){
+    .cshome video{
+        width: 100%;
+        height: auto;
+    }
+}
+@media(max-aspect-ratio: 16/9){
+    .cshome video{
+        width: auto;
+        height: 100%;
+    }
+}
+
+ @media screen and (max-width: 1080px){
+    .csgrid{
+        grid-template-columns: 1fr 1fr;
+    }
+ }
+ @media screen and (max-width: 780px){
+    .csgrid{
+        grid-template-columns: 1fr ;
+    }
+    .cshome .content{
+        top: 30%;
+    }
+    .cshome h1{
+        font-size: 30px;
+    }
+ }
+ @media screen and (max-width: 380px){
+    .csBox{
+        padding: var(--padding-2);
+    }
+    .csBox ul li{
+        font-size: 14px;
+    }
+ }

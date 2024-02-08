@@ -1,0 +1,93 @@
+staff table // 
+admission table // name, dob, phno, email, gender, medium, caste, religion, add, district, state, country,
+pincode, board, percentage, yop, stream, sub, photo, bc_photo, ms_photo, sc_photo
+gallery table
+slider table
+college_stuff // name, designation, category, subject, position
+
+CREATE TABLE college_student_info (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    dob DATE NOT NULL,
+    phno VARCHAR(15) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    medium VARCHAR(50) NOT NULL,
+    caste VARCHAR(50) NOT NULL,
+    religion VARCHAR(50) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    district VARCHAR(50) NOT NULL,
+    state VARCHAR(50) NOT NULL,
+    country VARCHAR(50) NOT NULL,
+    pincode VARCHAR(10) NOT NULL,
+    board VARCHAR(50) NOT NULL,
+    percentage DECIMAL(5, 2) NOT NULL,
+    yop INT NOT NULL,
+    stream VARCHAR(50) NOT NULL,
+    sub VARCHAR(255) NOT NULL,
+    photo VARCHAR(255),
+    bc_photo VARCHAR(255),
+    ms_photo VARCHAR(255),
+    sc_photo VARCHAR(255)
+);
+
+INSERT INTO `college_student_info` (`id`, `name`, `dob`, `phno`, `email`, `gender`, `medium`, `caste`, `religion`, `address`, `district`, `state`, `country`, `pincode`, `board`, `percentage`, `yop`, `stream`, `sub`, `photo`, `bc_photo`, `ms_photo`, `sc_photo`) VALUES (NULL, 'iuhfhiwe', '2024-01-02', '3534636', 'efdveiuh', 'frft44rgt', 'rferyfguf', 'efirfir', 'rfugrugfuyg', 'hhghdgsfg', 'fgdfyue', 'fugrgyur', 'rfhrf', 'ehf', 'dheihf', '45', '34', 'irfr', 'fiurhhf4', 'rfrgfyug4uy', 'fihrfh', 'ihrfiurf', 'cfeggueu');
+
+create table college_stuff (
+    t_id int auto_increment primary key,
+    name varchar(100),
+    designation varchar(100) default null,
+    category varchar(100),
+    subject varchar(100) default null,
+    position varchar(100) default null,
+)
+
+insert into college_stuff (name, designation, category,  subject, position) values ('bidhan', null, 'xyz', 'abc', 'x')
+
+CREATE TABLE student_information (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    DOB DATE NOT NULL,
+    Aadhaar_no VARCHAR(12),
+    ph_no VARCHAR(15),
+    email VARCHAR(100),
+    gender VARCHAR(50),
+    nationality VARCHAR(50),
+    religion VARCHAR(50),
+    mother_tongue VARCHAR(50),
+    caste VARCHAR(50),
+    category VARCHAR(50),
+    last_school VARCHAR(100),
+    ph_disability VARCHAR(100),
+    blood_group VARCHAR(5),
+    identification_mark VARCHAR(255),
+    father_name VARCHAR(100),
+    father_qualification VARCHAR(50),
+    father_occupation VARCHAR(50),
+    father_ph_no VARCHAR(15),
+    father_email VARCHAR(100),
+    father_correspondence_address TEXT,
+    mother_name VARCHAR(100),
+    mother_qualification VARCHAR(50),
+    mother_occupation VARCHAR(50),
+    mother_ph_no VARCHAR(15),
+    mother_email VARCHAR(100),
+    mother_correspondence_address VARCHAR(255),
+    residential_address VARCHAR(255),
+    district VARCHAR(50),
+    state VARCHAR(50),
+    country VARCHAR(50),
+    pincode VARCHAR(10),
+    class_enrolled VARCHAR(20),
+    photo_url VARCHAR(255),
+    birth_certificate_url VARCHAR(255)
+);
+
+INSERT INTO student_information (Name, DOB, Aadhaar_no, ph_no, email, gender, nationality, religion, mother_tongue, caste, category, last_school, ph_disability, blood_group, identification_mark, father_name, father_qualification, father_occupation, father_ph_no, father_email, father_correspondence_address, mother_name, mother_qualification, mother_occupation, mother_ph_no, mother_email, mother_correspondence_address, residential_address, district, state, country, pincode, class_enrolled, photo_url, birth_certificate_url) VALUES ?
+
+create table gallery (
+    img_id int auto_increment primary key,
+    img_link varchar(200)
+)
+
+insert into gallery (img_link) values ('http://uy')

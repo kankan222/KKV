@@ -1,0 +1,372 @@
+.mt{
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+.boxContainer{
+    border: 1px solid var(--black-light);
+    overflow: hidden;
+    border-radius: var(--border-radius-3) var(--border-radius-3);
+    transition: 300ms ease;
+}
+.case{
+    text-align: center;
+    color: var(--white);
+    background: var(--primary-color);
+    padding: var(--padding-rem-0) 0;
+}
+:is(.abCon, .principal, .rector, .vice-principal) .image{
+    width: 100%;
+    margin: auto;
+    padding: var(--padding-rem-1);
+    text-align: center;
+}
+.abCon img{
+    width: 100%;
+    aspect-ratio: 4/1;
+}
+:is(.principal, .rector, .vice-principal) span.uppercase{
+    font-size: 16px;
+    font-weight: 500;
+}
+.pure{
+    padding: var(--padding-rem-0) var(--padding-rem-1);
+}
+/* ABOUT US ENDS HERE  */
+.flexion{
+    display: flex;
+    align-items: center;
+}
+.img{
+    width: 285px;
+    aspect-ratio: 1;
+}
+/* ========================
+        STAFF PAGE
+======================== */
+:is(.staff, .fee-structure, .rules, .facilities,
+.imageGallery, .contact, .admission) h2{
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    border-radius: var(--border-radius-2) var(--border-radius-2) 0 0;
+    padding-top: var(--padding-rem-0);
+    padding-bottom: var(--padding-rem-0);
+}
+.staff .gridBox{
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1rem;
+}
+.staff .coverBox{
+    padding: var(--padding-rem-1);
+    border-radius: 0 0 var(--border-radius-2) var(--border-radius-2);
+    margin-bottom: 2rem;
+}
+.staff .profile{
+    background: var(--primary-light-color);
+    text-align: center;
+    width: 100%;
+    padding: var(--padding-1);
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+}
+.staff .profile:hover{
+    box-shadow: var(--box-shadow-3);
+  border: 1px solid var(--primary-light-color)
+}
+.staff .profile img{
+    width: 100px;
+    aspect-ratio: 1;
+    box-shadow: none;
+    margin-top: 5px;
+    object-fit: fill;
+}
+.staff .profile .uppercase{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+/* =====================
+    FEE-STRUCTURE
+===================== */
+.fee-structure .feeBox{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+.fee-structure th{
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: underline;
+}
+.fee-structure table{
+    padding: 10px var(--padding-rem-1);
+    width: 100%;
+}
+.fee-structure table tr{
+    font-weight: 500;
+}
+
+.fee-structure h2{
+    margin-top: 2rem;
+}
+.fee-structure p{
+    margin-top: 1rem;
+}
+
+/* ====================
+RULES
+=================== */
+:is(.rules, .facilities) h3{
+    text-align: center;
+    margin-top: 1rem;
+}
+:is(.rules, .facilities) p{
+    padding: var(--padding-rem-1);
+}
+.rules .color{
+    padding-bottom: 0;
+    font-weight: 600;
+}
+.rules .papu{
+    padding-top: 0;
+}
+/* ==========================
+            GALLERY
+========================== */
+.galleryBox{
+    flex-wrap: wrap;
+    padding: var(--padding-rem-1);
+    width: 100%;
+}
+.imageGallery img{
+    width: 250px;
+    aspect-ratio: 1/1;
+    flex-grow: 1;
+    box-shadow: none;
+}
+.imageGallery .image{
+    padding: var(--padding-rem-1);
+}
+/* =======================
+        CONTACT US 
+======================= */
+.contact .info{
+    padding: var(--padding-rem-1);
+    padding-bottom: 0;
+    width: 100%;
+}
+:is(.contact, .admission, .admin) .form{
+    padding: var(--padding-rem-1);
+}
+.contact .uil{
+    font-size: 1.5rem;
+}
+.contact span.color{
+    font-weight: 600;
+}
+:is(.contact, .admission, .admin) .form{
+    width: 100%;
+}
+:is(.contact, .admission, .admin) .form .field{
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+}
+:is(.contact, .admission, .admin) .form form :is(input, textarea, select){
+    width: 100%;
+    padding: var(--padding-2);
+    border-radius: 4px;
+    border: 1px solid var(--black-light);
+    font-size: 1rem;
+    cursor: pointer;
+}
+:is(.contact, .admission, .admin) .form form :is(input, textarea):focus{
+    border: 1px solid var(--primary-color);
+    /* border: none; */
+}
+.contact .form form textarea{
+    resize: none;
+    height: 200px;
+}
+.contact .form form .btn{
+    text-align: center;
+}
+.contact .location span.color{
+    font-size: 14px;
+}
+/* ========================
+        ADMISSION FORM 
+======================== */
+
+.admission .form .grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0 ,1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.admission .form .field{
+    margin: auto;
+}
+.admission .field label{
+    font-weight: 500;
+}
+.admission h3{
+    text-align: center;
+    text-decoration: underline;
+}
+.admission .form form input[type = "radio"]{
+    padding: none;
+    /* border-radius: none; */
+    width: fit-content;
+    display: inline-block;
+}
+.admission .flex1{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.admission .grid1{
+   display: grid;
+   grid-template-columns: repeat(8, 1fr);
+   gap: 10px;
+   margin-bottom: 1.5rem;
+}
+.admission .grid3{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.admission .ter{
+    background: var(--primary-light-color);
+    padding: 4px;
+    border-radius: 4px;
+}
+.admission .ter span.color{
+    text-decoration: underline;
+}
+.admission button{
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+.none{
+    display: none;
+}
+/* =========================
+        ADMIN LOGIN
+========================         */
+.admin{
+    max-width: 400px;
+}
+.password{
+    position: relative;
+    overflow: hidden;
+}
+.password i{
+    position: absolute;
+    top: 32px;
+    right: 12px;
+    cursor: pointer;
+}
+.password i.active::before{
+    content: '\ebf8';
+ }
+.admin .field button{
+    font-weight: 600;
+}
+.login-adm{
+    text-align: center;
+}
+/* ====================
+    BACKGROUND BOX
+==================== */
+.backgroundBox{
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  z-index: 99;
+  transition: all 500s ease;
+}
+.backgroundBox .imageContainer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  padding: var(--padding-rem-1);
+  border-radius: var(--border-radius-1);
+  cursor: pointer;
+}
+.backgroundBox img{
+    width: 500px;
+  aspect-ratio: 1;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+/* -------------MEDIA QUERIES--------------- */
+@media screen and (max-width: 780px) {
+    .abCon img{
+        aspect-ratio: 16/9;
+    }
+    .flexion{
+        flex-direction: column;
+    }
+    .staff .gridBox{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .staff .profile :is(.uppercase, .name){
+        font-size: 10px;
+    }
+    .fee-structure .feeBox{
+        grid-template-columns: 1fr 1fr;
+    }
+    .backgroundBox img{
+        width: 300px;
+    }
+    .contact .flex{
+        flex-direction: column;
+    }
+    .admission .form :is(.grid,.grid3){
+        grid-template-columns: 1fr 1fr;
+    }
+    .admission .grid1{
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+}
+@media screen and (max-width: 480px){
+    .staff .gridBox{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    } 
+    .fee-structure .feeBox{
+        grid-template-columns: 1fr;
+    }
+    .imageGallery .galleryBox{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .imageGallery .galleryBox img{
+        width: 135px;
+    }
+    .admission .form :is(.grid,.grid3){
+        grid-template-columns: 1fr;
+    }
+    .admission .grid1{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .admission .grid1 .flex1{
+        gap: 1px;
+    }
+    .none{
+        display: block;
+    }
+}

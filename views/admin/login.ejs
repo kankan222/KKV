@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | KKV</title>
+
+  <link rel="stylesheet" href="/static/app/css/main.css" />
+  <link rel="stylesheet" href="/static/app/css/file.css" />
+
+  <!-- Icons Css  -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+</head>
+
+<body>
+  <main class="wigin boxContainer mt admin">
+    <h3 class="uppercase case">admin login</h3>
+    <div class="form">
+      <form action="">
+        <div class="field">
+          <label for="user">Username</label>
+          <input type="text" name="user" placeholder="Username" id="username">
+        </div>
+        <div class="field password">
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="password" id="login-password">
+          <i class="uil uil-eye" id="eye"></i>
+        </div>
+        <div class="field">
+          <button class="uppercase btn">submit</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <div class="login-adm wigin">
+    <div class="copyRight">
+      <p class="para">All rights reserved &nbsp;&nbsp;&copy; | Designed &amp; managed by <span class="uppercase"
+          onclick="location.href = `http://raynrelinfotec.in/`">Raynrel <span class="color">Infotec</span></span></p>
+    </div>
+  </div>
+
+  <script>
+    const passField = document.querySelector("#login-password");
+    const toggleBtn = document.querySelector("#eye");
+
+    toggleBtn.onclick = () => {
+      if (passField.type == "password") {
+        passField.type = "text";
+        toggleBtn.classList.add("active");
+      }
+      else {
+        passField.type = "password";
+        toggleBtn.classList.remove("active");
+      }
+    }
+  </script>
+</body>
+
+</html>

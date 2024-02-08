@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalong Kapili Vidyapith</title>
+    <link rel="icon" href="/static/assets/home/logo.png">
+    <!-- -------CSS------- -->
+    <link rel="stylesheet" href="/static/app/css/main.css" />
+
+    <!-- Icons Css  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+
+</head>
+
+<body>
+    <%- include(`../views/partials/header.ejs`) %>
+        <section class="cgrid">
+            <div class="box" onclick="location.href = `/home`">
+                <h4>Higher Secondary Section</h4>
+                <p class="one">Arts, Science & Commerce (English & Assamese Medium)</p>
+                <p>ADP Road, Christianpatty, Nagaon(Assam)</p>
+                <p class="go-to">
+                    <span>Click here</span>
+                    <i class="uil uil-angle-double-right"></i>
+                </p>
+            </div>
+            <div class="box" onclick="window.open(`/school`)">
+                <h4>School Section</h4>
+                <p class="one">Nursery to Class-X (English & Assamese Medium)</p>
+                <p>G.M Road, (Back side of Nowgong College)</p>
+                <p class="go-to">
+                    <span>Click here</span>
+                    <i class="uil uil-angle-double-right"></i>
+                </p>
+            </div>
+            <div class="box" onclick="window.open(`/cs`)">
+                <h4>EMAX INDIA</h4>
+                <p class="one">Computer Education Centre</p>
+                <p>Under GOVT. OF INDIA</p>
+                <p class="addr">Christianpatty, A.D.P.Road, Nagaon</p>
+                <p class="go-to">
+                    <span>Click here</span>
+                    <i class="uil uil-angle-double-right"></i>
+                </p>
+            </div>
+        </section>
+
+</body>
+
+</html>
