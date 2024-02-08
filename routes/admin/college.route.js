@@ -26,5 +26,9 @@ router.post('/college-form', upload.fields(photoField), collCon.collegeAdmission
 router.get('/admin/college', collCon.renderCollegeFormData)
 router.get('/per-college-student-data', collCon.getEachCollegeStudentData)
 
+//college stuff route
+
+router.post('/college-stuff-add', collCon.addCollegeStuff)
+
 module.exports = router
 

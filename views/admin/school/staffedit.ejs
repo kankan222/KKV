@@ -44,45 +44,53 @@
         <!-- --------POPUP BOX----------- -->
         <div class="modal-container hide">
             <div class="popupModal">
-                <form action="">
+                <form id="add-stuff">
                     <div class="field flex">
                         <h4 class="uppercase color"><span>Add</span> staff-details</h4>
                     </div>
                     <hr>
                     <div class="field flex">
                         <img src="/static/assets/admin-staff/rector.jpg" alt="img">
-                        <input type="file" name="staff-img" id="file-staff">
+                        <input type="file" name="stuff-img" id="file-staff" value="herii.jpg">
                         <a class="btn" onclick="">Upload <i class="uil uil-image-upload"></i></a>
                     </div>
                     <div class="pop-grid">
                         <div class="field">
                             <label for="sname">Name</label>
-                            <input type="text" placeholder="e.g.: Anu Malik">
+                            <input type="text" name="name" placeholder="e.g.: Anu Malik">
                         </div>
                         <div class="field">
                             <label for="sname">Degree</label>
-                            <input type="text" placeholder="e.g.: M.Sc., M.Phil.">
+                            <input type="text" name="degree" placeholder="e.g.: M.Sc., M.Phil.">
                         </div>
                         <div class="field">
                             <label for="sname">Designation</label>
-                            <input type="text" placeholder="e.g.: Assistant">
+                            <input type="text" name="designation"  placeholder="e.g.: Assistant">
                         </div>
                         <div class="field">
                             <label for="sname">Subject</label>
-                            <input type="text" placeholder="e.g.: Assamese">
-                        </div>    
-                    </div>
-                    <div class="field field-btns flex">
-                        <a class="btn uppercase">update</a>
-                        <a class="btn uppercase" onclick="closeModalwindow()">cancel</a>
+                            <input type="text" name="subject" placeholder="e.g.: Assamese">
+                        </div>  
+                        <div class="field">
+                            <label for="sname">Subject</label>
+                            <select name="category">
+                                <option value="">College</option>
+                                <option value="">College</option>
+                                <option value="">College</option>
+                            </select>
+                        </div>   
                     </div>
                 </form>
+                <div class="field field-btns flex">
+                    <a class="btn uppercase" onclick="sendStuffData()">update</a>
+                    <a class="btn uppercase" onclick="closeModalwindow()">cancel</a>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- javascript -->
-    <script src="/static/app/js/admStaff.js"></script>
+    <script src="/static/app/js/gal.js"></script>
 </body>
 
 </html>

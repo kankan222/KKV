@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,32 +12,35 @@
     <!-- Icons Css  -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
 </head>
+
 <body>
     <main>
         <div class="staff-header-container flex wigin">
             <h3 class="uppercase color">Gallery</h3>
             <a class="btn" onclick="openModalwindow()">Upload <i class="uil uil-image-upload"></i></a>
         </div>
+
         <div class="gallery-container flex wigin">
-            <div class="image-container">
-                <i class="uil uil-trash-alt"></i>
-                <img src="/static/assets/admin-staff/rector.jpg" alt="image">
-            </div>
+            <% results?.forEach((el)=>{ %>
+                <div class="image-container">
+                    <i class="uil uil-trash-alt" id="<%= el.img_id %>" onclick="deleteSchoolGalleryImage(this, 'school')"></i>
+                    <img src="/static/<%= el.img_link %>" alt="image">
+                </div>
+            <% }) %>
         </div>
 
         <!-- --POPUP BOX-- -->
         <div class="modal-container hide">
             <div class="popupModal galleryModal">
-                <form action="">
-                    <div class="field flex">
-                        <img src="/static/assets/admin-staff/rector.jpg" alt="img">
-                        <input type="file" name="staff-img" id="file-staff"> 
-                    </div>
-                    <div class="field field-btns flex">
-                        <a class="btn" onclick="">Upload <i class="uil uil-image-upload"></i></a>
-                        <a class="btn uppercase" onclick="closeModalwindow()">cancel</a>
+                <form id="gallery-img">
+                    <div class="field">
+                        <input type="file" name="scl-gallery" id="file-staff" multiple="true">
                     </div>
                 </form>
+                <div class="field field-btns flex">
+                    <a class="btn" onclick="insertGalleryImage('school')">Upload <i class="uil uil-image-upload"></i></a>
+                    <a class="btn uppercase" onclick="closeModalwindow()">cancel</a>
+                </div>
             </div>
         </div>
     </main>
@@ -44,5 +48,7 @@
 
     <!-- javascript -->
     <script src="/static/app/js/admStaff.js"></script>
+    <script src="/static/app/js/gal.js"></script>
 </body>
+
 </html>
