@@ -52,3 +52,7 @@ async function sendStuffData() {
       closeModalwindow();
     }
 }
+
+async function showMoreFormdetails(target) {
+  console.log(target.value)
+}

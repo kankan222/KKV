@@ -208,7 +208,12 @@ exports.deleteImagefromGallery = async (req, res) => {
 // school stuff control----------------------
 
 exports.renderSchoolStuff = async (req, res) => {
-  res.render('./admin/school/staffedit.ejs')
+   const q = `select * from school_stuff;`
+   db.query(q, (err, result) => {
+      if (!err) {
+         res.render('./admin/school/staffedit.ejs', {result})
+      }
+   })
 }
 
 exports.addSchoolStuff = async (req, res)=>{

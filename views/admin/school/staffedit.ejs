@@ -15,35 +15,42 @@
 <body>
     <main>
         <div class="staff-header-container flex wigin">
-            <h3 class="uppercase color">Staff</h3>
+            <h3 class="uppercase color">School Staff</h3>
             <a class="btn" onclick="openModalwindow()">Add <i class="uil uil-plus-circle"></i></a>
+        </div>
+        <div class="staff-header-container flex wigin">
+            <a class="btn">Head-Staff</a>
+            <a class="btn">Non-Teaching Staff</i></a>
+            <a class="btn">Teaching-Staff</a>
         </div>
         <!-- ---------IMAGE-CONTAINER-------------- -->
         <div class="staff-img-grid wigin">
             <!-- --------------BOX START-------------- -->
-            <div class="field flex">
-                <img src="/static/assets/admin-staff/rector.jpg" alt="img">
-                <div class="field-data">
-                    <p class="staff-name">
-                        <span>Name:</span> <span>Sri Bidhan Borua Mailk Choudhury</span>
-                    </p>
-                    <p class="staff-deg">
-                        <span>Degree:</span> <span>MBBS, MS, Phd</span>
-                    </p>
-                    <p class="staff-designation">
-                        <span>Designation:</span> <span>Rector</span>
-                    </p>
-                    <p class="staff-subject">
-                        <span>Subject:</span> <span>Philosophy</span>
-                    </p>
+            <% result?.forEach((el)=>{ %>
+                <div class="field flex">
+                    <img src="/static/<%= el.stuff_img %>" alt="img">
+                    <div class="field-data">
+                        <p class="staff-name">
+                            <span>Name:</span> <span><%= el.name %></span>
+                        </p>
+                        <p class="staff-deg">
+                            <span>Degree:</span> <span>MBBS, MS, Phd</span>
+                        </p>
+                        <p class="staff-designation">
+                            <span>Designation:</span> <span>Rector</span>
+                        </p>
+                        <p class="staff-subject">
+                            <span>Subject:</span> <span>Philosophy</span>
+                        </p>
+                    </div>
+                    <a class="btn" onclick=""><i class="uil uil-pen"></i><span>Edit</span></a>
                 </div>
-                <a class="btn" onclick=""><i class="uil uil-pen"></i><span>Edit</span></a>
-            </div>
+            <% }) %>
             <!-- ----------BOX END---------- -->
         </div>
         <!-- --------POPUP BOX----------- -->
         <div class="modal-container hide">
-            <div class="popupModal">
+            <div class="popupModal">       
                 <form id="add-stuff">
                     <div class="field flex">
                         <h4 class="uppercase color"><span>Add</span> staff-details</h4>
@@ -54,31 +61,31 @@
                         <input type="file" name="stuff-img" id="file-staff" value="herii.jpg">
                         <a class="btn" onclick="">Upload <i class="uil uil-image-upload"></i></a>
                     </div>
+                    <div class="field flex">
+                        <select name="category" onchange="showMoreFormdetails(this)">
+                            <option value="">--Select Category First--</option>
+                            <option value="HeadStaff">HeadStaff</option>
+                            <option value="Tstuff">Teaching stuff</option>
+                            <option value="Ntuff">Non teaching Stuff</option>
+                        </select>
+                    </div>
                     <div class="pop-grid">
                         <div class="field">
                             <label for="sname">Name</label>
                             <input type="text" name="name" placeholder="e.g.: Anu Malik">
                         </div>
                         <div class="field">
-                            <label for="sname">Degree</label>
-                            <input type="text" name="degree" placeholder="e.g.: M.Sc., M.Phil.">
+                            <label for="sname">Position</label>
+                            <input type="text" name="postion" placeholder="e.g.: M.Sc., M.Phil.">
                         </div>
                         <div class="field">
-                            <label for="sname">Designation</label>
+                            <label for="sname">Qualification</label>
                             <input type="text" name="designation"  placeholder="e.g.: Assistant">
                         </div>
                         <div class="field">
                             <label for="sname">Subject</label>
                             <input type="text" name="subject" placeholder="e.g.: Assamese">
-                        </div>  
-                        <div class="field">
-                            <label for="sname">Subject</label>
-                            <select name="category">
-                                <option value="">College</option>
-                                <option value="">College</option>
-                                <option value="">College</option>
-                            </select>
-                        </div>   
+                        </div>    
                     </div>
                 </form>
                 <div class="field field-btns flex">

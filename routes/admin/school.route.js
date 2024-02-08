@@ -38,7 +38,7 @@ router.get('/admin/school', controlls.renderSchoolFormData)
 router.get('/get-each-school-student-data', controlls.getEachSchoolStudentData)
 
 //school stuff route -----------------
-router.get('/stuff-edit', controlls.renderSchoolStuff)
+router.get('/school-stuff-edit', controlls.renderSchoolStuff)
 router.post('/school-stuff-add',  uploadStuff.single('stuff-img'), controlls.addSchoolStuff)
 
 module.exports = router;
