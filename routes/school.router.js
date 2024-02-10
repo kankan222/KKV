@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path')
+const path = require('path');
+const { schoolGalleryRender } = require('../controller/admin/adm.controll');
 
 
 router.get('/', (req, res) => {
@@ -61,11 +62,7 @@ router.get('/school-facilities', (req, res) => {
 
     )
 })
-router.get('/school-gallery', (req, res) => {
-    res.status(200).render(path.join(__dirname, '../views/SCHOOL/gallery.ejs')
-
-    )
-})
+router.get('/school-gallery', schoolGalleryRender)
 
 router.get('/school-admissionForm', (req, res) => {
     res.status(200).render(path.join(__dirname, '../views/SCHOOL/admissionForm.ejs')
@@ -74,8 +71,12 @@ router.get('/school-admissionForm', (req, res) => {
 })
 
 router.get('/school-contact', (req, res) => {
-    res.status(200).render(path.join(__dirname, '../views/SCHOOL/contact.ejs')
-
-    )
+    res.status(200).render(path.join(__dirname, '../views/SCHOOL/contact.ejs'))
 })
+
+router.get('/schoolpdf', (req, res) => {
+    res.status(200).render(path.join(__dirname, '../views/SCHOOL/schoolPDF.ejs'))
+})
+
+
 module.exports = router;

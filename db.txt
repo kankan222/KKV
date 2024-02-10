@@ -42,6 +42,15 @@ create table college_stuff (
     position varchar(100) default null,
 )
 
+create table school_stuff (
+    t_id int auto_increment primary key,
+    name varchar(100),
+    designation varchar(100) default null,
+    category varchar(100),
+    subject varchar(100) default null,
+    position varchar(100) default null,
+)
+
 insert into college_stuff (name, designation, category,  subject, position) values ('bidhan', null, 'xyz', 'abc', 'x')
 
 CREATE TABLE student_information (
@@ -84,6 +93,11 @@ CREATE TABLE student_information (
 );
 
 INSERT INTO student_information (Name, DOB, Aadhaar_no, ph_no, email, gender, nationality, religion, mother_tongue, caste, category, last_school, ph_disability, blood_group, identification_mark, father_name, father_qualification, father_occupation, father_ph_no, father_email, father_correspondence_address, mother_name, mother_qualification, mother_occupation, mother_ph_no, mother_email, mother_correspondence_address, residential_address, district, state, country, pincode, class_enrolled, photo_url, birth_certificate_url) VALUES ?
+
+create table collgallery (
+    img_id int auto_increment primary key,
+    img_link varchar(200)
+)
 
 create table gallery (
     img_id int auto_increment primary key,

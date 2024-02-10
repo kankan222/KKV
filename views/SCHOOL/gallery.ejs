@@ -20,29 +20,9 @@
     <section class="imageGallery boxContainer mt wigin">
         <h2 class="uppercase">Photo Gallery</h2>
         <div class="galleryBox flex">
-            <img src="/static/SCHOOL/img/gallery/image-1.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-2.jpeg" alt="image">
-            <!-- <img src="/static/SCHOOL/img/gallery/image-3.jpeg" alt="image"> -->
-            <img src="/static/SCHOOL/img/gallery/image-4.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-5.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-6.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-7.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-10.jpeg" alt="image">
-            <!-- <img src="/static/SCHOOL/img/gallery/image-11.jpeg" alt="image"> -->
-            <img src="/static/SCHOOL/img/gallery/image-12.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-13.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-14.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-15.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-16.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-17.jpeg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-18.png" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-19.jpg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-20.jpg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-21.jpg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-22.jpg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-23.jpg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-24.jpg" alt="image">
-            <img src="/static/SCHOOL/img/gallery/image-25.jpg" alt="image">
+            <% results?.forEach((el)=>{ %>
+                <img src="/static/<%= el.img_link %>" alt="image">
+            <% }) %>
         </div>
     </section>
 
