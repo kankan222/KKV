@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | KKV</title>
+    <!-- --CSS-- -->
+    <link rel="stylesheet" href="/static/app/css/admincss/header.css">
+    <!-- Icons Css  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+</head>
+
+<body>
+    <header class="flex">
+        <div class="logo">
+            <h3 class="uppercase">KKV | Admin panel</h3>
+        </div>
+        <span id="hamburger"><i class="uil uil-bars"></i></span>
+    </header>
+    <!-- --MAIN STARTS HERE-- -->
+    <main>
+        <!-- --NAV-LISTS-- -->
+        <aside>
+            <nav>
+                <ul>
+                    <li><a class="active"><i class="uil uil-apps"></i><span>Dashboard</span></a></li>
+                    <li><a><i class="uil uil-user-plus"></i><span>Add Student</span></a></li>
+                    <li><a><i class="uil uil-schedule"></i><span>Attendance</span></a></li>
+                    <li><a><i class="uil uil-users-alt"></i><span>Staff</span></a></li>
+                    <li><a><i class="uil uil-image-v"></i><span>Gallery</span></a></li>
+                    <li><a><i class="uil uil-signout"></i><span>Log Out</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- --CONTENT-- -->
+        <div class="content-container"><!-- for display property -->
+            <!-- HEADER CONTENT  -->
+            <div class="content-header">
+                <div class="search-bar flex">
+                    <input type="text" id="" placeholder="Search">
+                    <i class="uil uil-search"></i>
+                </div>
+                <a class="btn" onclick="">Add</a>
+            </div>
+
+            <!-- --MAIN-CONTENT-- -->
+            <div class="main-content">
+                <h4 class="uppercase">ADMISSION DETAILS</h4>
+                <div class="cgrid m-header">
+                    <h5 class="uppercase">ID</h5>
+                    <h5 class="uppercase">Name</h5>
+                    <h5 class="uppercase">Phone Number</h5>
+                    <h5 class="uppercase">Class</h5>
+                </div>
+                <div class="m-content">
+                    <!-- --TABLE START HERE--  -->
+                    <div class="cgrid m-details">
+                        <p class="id">
+                            <span class="uppercase">id</span>
+                            <span>1</span>
+                        </p>
+                        <p class="name">
+                            <span class="uppercase">name</span>
+                            <span>Kankan Jyoti Nath</span>
+                        </p>
+                        <p class="pno">
+                            <span class="uppercase">phone number</span>
+                            <span>6002649802</span>
+                        </p>
+                        <p class="class">
+                            <span class="uppercase">class</span>
+                            <span>3</span>
+                        </p>
+                    </div>
+                    <!-- ------------------- -->
+                </div>
+            </div>
+        </div>
+
+        <!-- --POPUP BOX-- -->
+        <div class="modal-container hide">
+            <div class="popupModal mainModal">
+                <h4 class="uppercase color">General information</h4>
+                <span id="closeModal" onclick="closeModalwindow()"><i class="uil uil-multiply"></i></span>
+                <div class="p-flex">
+                    <img src="/static/assets/admin-staff/rector.jpg" alt="img">
+                    <div class="g-grid">
+                        <div class="element">
+                            <span class="uppercase">name</span>
+                            <p class="pname">Kankan Jyoti Nath</p>
+                        </div>
+                        <div class="element">
+                            <span class="uppercase">DOB</span>
+                            <p class="pname">19/03/20</p>
+                        </div>
+                        <div class="element">
+                            <span class="uppercase">Aadhaar Card No.</span>
+                            <p class="pname">38592798477</p>
+                        </div>
+                        <div class="element">
+                            <span class="uppercase">Phone Number</span>
+                            <p class="pname">+91 6002649802</p>
+                        </div>
+                        <div class="element">
+                            <span class="uppercase">Email Id</span>
+                            <p class="pemail">jyotikankan222@gmail.com</p>
+                        </div>
+                        <div class="element">
+                            <span class="uppercase">Gender</span>
+                            <p class="pname">Male</p>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="e-grid g-grid">
+                    <div class="element">
+                        <span class="uppercase">NAtionality</span>
+                        <p class="pname">Indian</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Religion</span>
+                        <p class="pname">Hinduism</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Mother Tongue</span>
+                        <p class="pname">Assamese</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Caste</span>
+                        <p class="pname">OBC</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Category</span>
+                        <p class="pname">NCL</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Physical Problems/Disability</span>
+                        <p class="pname">No</p>
+                    </div>
+                </div>
+
+                <h4 class="uppercase color">Medical information</h4>
+                <div class="g-grid">
+                    <div class="element">
+                        <span class="uppercase">Blood Group(Compulsory)</span>
+                        <p class="pname">A+</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Identification Mark(Compulsory)</span>
+                        <p class="pname">A+</p>
+                    </div>
+                </div>
+
+                <h4 class="uppercase color">PARENT'S INFORMATION</h4>
+                <div class="g-grid e-grid">
+                    <div class="element">
+                        <span class="uppercase">Father's name</span>
+                        <p class="pname">Baap Hai woh</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Qualification</span>
+                        <p class="pname">BCA</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Occupation</span>
+                        <p class="pname">Something</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Mobile no.</span>
+                        <p class="pname">6002649802</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Email</span>
+                        <p class="pname">Baap Hai woh</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Correspondence address</span>
+                        <p class="pname">Baap Hai woh</p>
+                    </div>
+                </div>
+                <br>
+                <div class="g-grid e-grid">
+                    <div class="element">
+                        <span class="uppercase">Mother's name</span>
+                        <p class="pname">Baap Hai woh</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Qualification</span>
+                        <p class="pname">BCA</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Occupation</span>
+                        <p class="pname">Something</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Mobile no.</span>
+                        <p class="pname">6002649802</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Email</span>
+                        <p class="pname">Baap Hai woh</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Correspondence address</span>
+                        <p class="pname">Baap Hai woh</p>
+                    </div>
+                </div>
+
+                <h4 class="uppercase color">address</h4>
+                <div class="g-grid e-grid">
+                    <div class="element">
+                        <span class="uppercase">Residential Address</span>
+                        <p class="pname">Christianpatty, Nagaon, Assam</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">District</span>
+                        <p class="pname">Nagaon</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">State</span>
+                        <p class="pname">Assam</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Country</span>
+                        <p class="pname">India</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Pin Code</span>
+                        <p class="pname">782140</p>
+                    </div>
+                    <div class="element">
+                        <span class="uppercase">Class Applied for</span>
+                        <p class="pname">Class I</p>
+                    </div>
+                </div>
+                <a class="btn">View Birth Certificate <i class="uil uil-image"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- javascript -->
+    <script src="/static/app/js/admStaff.js"></script>
+</body>
+
+</html>
