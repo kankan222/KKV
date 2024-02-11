@@ -10,11 +10,14 @@ const log = require('./routes/admin/login');
 const schoolDashboard = require('./routes/admin/school.route')
 const collegeDashboard = require('./routes/admin/college.route')
 const galleryDashboard = require('./routes/admin/gallery.route')
+const cookieParser = require('cookie-parser')
+require('./controller/admin/auth');
 
 
 app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use(express.urlencoded({ extended: true }));
 app.use(body.json());
+app.use(cookieParser())
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.get('/', (req, res) => {

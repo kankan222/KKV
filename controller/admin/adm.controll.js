@@ -25,7 +25,7 @@ exports.schoolStudentsForm = async (req, res) => {
       pincode, class_enrolled, sst_photo, sbc_photo
    ], (err, result) => {
       if (!err) {
-         res.status(200).send({ msg: "form submitted" })
+         res.status(200).redirect('/school/schoolpdf')
       } else {
          console.log(err)
          res.status(500).send({ msg: "something error occured!" })
@@ -71,7 +71,7 @@ exports.collegeAdmission = async (req, res) => {
 
    await db.query(q, (err, result) => {
       if (!err) {
-         res.status(200).send({ msg: "college form submitted successsfully!" })
+         res.status(200).redirect('/school/schoolpdf')
       } else {
          console.log(err)
          res.status(500).send({ msg: 'Some error ocurred!' });
@@ -217,7 +217,7 @@ exports.renderSchoolStuff = async (req, res) => {
 }
 
 exports.addSchoolStuff = async (req, res)=>{
-   const stuffImg = req.file.path.replace(/\\/g, '/').split('static')[1];
+   const stuffImg = req.file ? req.file.path.replace(/\\/g, '/').split('static')[1] : undefined;
    const q = `insert into school_stuff (name, designation, category, subject, position, stuff_img) values (?,?,?,?,?,?);`
    db.query(q, [req.body.name, req.body.designation, req.body.category, req.body.subject, req.body.position, stuffImg], (err, result)=>{
      if(!err){
@@ -228,16 +228,74 @@ exports.addSchoolStuff = async (req, res)=>{
    })
  }
 
+ exports.deleteSchoolStuff = async(req, res)=>{
+   const q = `delete from school_stuff where t_id = ${req.query.tid}`;
+   db.query(q, (err, result)=>{
+      if (!err) {
+         res.status(200).send({msg : "deleted successfully.."})
+      }else {
+         res.status(500).send({msg : "internal server error!"})
+      }
+   })
+ }
+
+ exports.updateSchoolStuff = async (req, res)=>{
+   const stuffImg = req.file ? req.file.path.replace(/\\/g, '/').split('static')[1] : req.body.oldimg.split('static/')[1] ;
+   const q = `update school_stuff set name= '${req.body.name}', designation= '${req.body.designation}', subject = '${req.body.subject}', position = '${req.body.position}', stuff_img='${stuffImg}' where t_id = ${req.body.id}`
+   db.query(q, (err, result)=>{
+     if(!err){
+       res.status(200).send({msg : "Stuff updated fully.."});
+     }else{
+      console.log(err)
+       res.status(500).send({msg: "not updated! some error occurred..."});
+     }
+   })
+ }
+
 
  // college stuff control ---------------------
 
+ exports.renderCollegeStuffEdit = async (req, res) => {
+   const q = `select * from college_stuff;`
+   db.query(q, (err, result) => {
+      if (!err) {
+         res.render('./admin/college/college-stuff.ejs', {result})
+      }
+   })
+ }
+
  exports.addCollegeStuff = async (req, res)=>{
-   const q = `insert into college_stuff (name, designation, category, subject, position) values (?,?,?,?,?);`
-   db.query(q, [req.body.name, req.body.designation, req.body.category, req.body.subject, req.body.position], (err, result)=>{
+   const stuffImg = req.file ? req.file.path.replace(/\\/g, '/').split('static')[1] : undefined;
+   const q = `insert into college_stuff (name, designation, category, subject, position, stuff_img) values (?,?,?,?,?,?);`
+   db.query(q, [req.body.name, req.body.designation, req.body.category, req.body.subject, req.body.position, stuffImg], (err, result)=>{
      if(!err){
        res.status(200).send({msg : "Stuff added fully.."});
      }else{
        res.status(500).send({msg: "not inserted! some error occurred..."});
      }
+   })
+ }
+
+ exports.updateCollegeStuff = async (req, res)=>{
+   const stuffImg = req.file ? req.file.path.replace(/\\/g, '/').split('static')[1] : req.body.oldimg.split('static/')[1] ;
+   const q = `update college_stuff set name= '${req.body.name}', designation= '${req.body.designation}', subject = '${req.body.subject}', position = '${req.body.position}', stuff_img='${stuffImg}' where t_id = ${req.body.id}`
+   db.query(q, (err, result)=>{
+     if(!err){
+       res.status(200).send({msg : "Stuff updated fully.."});
+     }else{
+      console.log(err)
+       res.status(500).send({msg: "not updated! some error occurred..."});
+     }
+   })
+ }
+
+ exports.deleteCollegeStuff = async(req, res)=>{
+   const q = `delete from college_stuff where t_id = ${req.query.tid}`;
+   db.query(q, (err, result)=>{
+      if (!err) {
+         res.status(200).send({msg : "deleted successfully.."})
+      }else {
+         res.status(500).send({msg : "internal server error!"})
+      }
    })
  }

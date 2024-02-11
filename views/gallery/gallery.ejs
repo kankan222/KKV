@@ -19,7 +19,10 @@
             <section class="imageGallery boxContainer mt wigin">
                 <h2 class="uppercase">Photo Gallery</h2>
                 <div class="galleryBox flex">
-                    <img src="/static/assets/gallery/image-1.jpeg" alt="image">
+                    <% results?.forEach((el)=>{ %>
+                        <img src="/static<%= el.img_link %> " alt="image">
+                    <% }) %>
+                    <!-- <img src="/static/assets/gallery/image-1.jpeg" alt="image">
                     <img src="/static/assets/gallery/image-2.jpeg" alt="image">
                     <img src="/static/assets/gallery/image-3.jpeg" alt="image">
                     <img src="/static/assets/gallery/image-4.jpeg" alt="image">
@@ -38,7 +41,7 @@
                     <img src="/static/assets/gallery/image-17.jpeg" alt="image">
                     <img src="/static/assets/gallery/image-18.jpeg" alt="image">
                     <img src="/static/assets/gallery/image-19.jpeg" alt="image">
-                    <img src="/static/assets/gallery/image-20.jpeg" alt="image">
+                    <img src="/static/assets/gallery/image-20.jpeg" alt="image"> -->
                 </div>
             </section>
             <!-- ========================================================================
