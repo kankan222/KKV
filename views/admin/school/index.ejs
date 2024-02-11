@@ -4,100 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="../../static/app/css/admincss/style.css" />
-    <title>admin dashboard</title>
+    <title>Admin | KKV</title>
+    <!-- --CSS-- -->
+    <link rel="stylesheet" href="/static/app/css/admincss/header.css">
+    <link rel="stylesheet" href="/static/app/css/admincss/modal.css">
+    <link rel="stylesheet" href="/static/app/css/admincss/index.css">
+    <!-- Icons Css  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
 </head>
 
 <body>
-    <div class="header">
-        <div class="top">
-            <div class="logo">
-                <h2>My Business</h2>
-            </div>
-            <div class="close">
-                <span class="material-symbols-outlined operateC hide" onclick="closeMenuBar(this)">
-                    close
-                </span>
-                <span class="material-symbols-outlined operateM" onclick="menuBar(this)">
-                    menu
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <aside class="">
-            <!-- sidebar -->
-            <div class="sidebar">
-                <a href="#" class="active"><span class="material-symbols-outlined">dashboard</span>
-                    <h3>dashboard</h3>
-                </a>
-                <a href="#"><span class="material-symbols-outlined">
-                        person_add
-                    </span>
-                    <h3>add student</h3>
-                </a>
-                <a href="/school-gallery"><span class="material-symbols-outlined">
-                        fact_check
-                    </span>
-                    <h3>gallery</h3>
-                </a>
-                <a href="/school-stuff-edit"><span class="material-symbols-outlined">
-                        groups
-                    </span>
-                    <h3>stuff</h3>
-                </a>
-                <a href="#"><span class="material-symbols-outlined">
-                        logout
-                    </span>
-                    <h3>logout</h3>
-                </a>
-            </div>
-        </aside>
-        <!-- main section -->
-        <main>
-            <div class="searchBar">
-                <input type="text" placeholder="Search by name">
-                <span class="material-symbols-outlined">
-                    search
-                </span>
-            </div>
-            <div class="recent-adm">
-                <h2>
-                    Recent Admission
-                </h2>
+    <%- include('../partials/header.ejs') %>
+    
+    <!-- --MAIN STARTS HERE-- -->
+    <main>
+        <!-- --NAV-LISTS-- -->
+        <%- include('../partials/nav.ejs') %>
+            <!-- --CONTENT-- -->
+            <div class="content-container"><!-- for display property -->
+                <!-- HEADER CONTENT  -->
+                <div class="content-header">
+                    <div class="search-bar flex">
+                        <input type="text" id="" placeholder="Search">
+                        <i class="uil uil-search"></i>
+                    </div>
+                    <a class="btn" onclick="">Add</a>
+                </div>
 
-                <table>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Ph. no</th>
-                        <th>Class</th>
-                    </tr>
-                    <% result?.forEach((data)=>{ %>
-                        <tr>
-                            <td><%= data.student_id %></td>
-                            <td><%= data.Name %></td>
-                            <td><%= data.ph_no %></td>
-                            <td class="td"><%= data.class_enrolled %> <span class="material-symbols-outlined" data-stid="<%= data.student_id %>" onclick="getPerStudentData(this)">unfold_more</span></td>
-                        </tr>
-                    <% }) %>
-                </table>
+                <!-- --MAIN-CONTENT-- -->
+                <div class="main-content">
+                    <h4 class="uppercase">ADMISSION DETAILS</h4>
+                    <div class="cgrid m-header">
+                        <h5 class="uppercase">ID</h5>
+                        <h5 class="uppercase">Name</h5>
+                        <h5 class="uppercase">Phone Number</h5>
+                        <h5 class="uppercase">Class</h5>
+                    </div>
+                    <div class="m-content">
+                        <!-- --TABLE START HERE--  -->
+                        <% result?.forEach((data)=>{ %>
+                            <div class="cgrid m-details" data-stid="<%= data.student_id %>"
+                                onclick="getPerStudentData(this)"">
+                        <p class=" id">
+                                <span class="uppercase">id</span>
+                                <span>
+                                    <%= data.student_id %>
+                                </span>
+                                </p>
+                                <p class="name">
+                                    <span class="uppercase">name</span>
+                                    <span>
+                                        <%= data.Name %>
+                                    </span>
+                                </p>
+                                <p class="pno">
+                                    <span class="uppercase">phone number</span>
+                                    <span>
+                                        <%= data.ph_no %>
+                                    </span>
+                                </p>
+                                <p class="class">
+                                    <span class="uppercase">class</span>
+                                    <span>
+                                        <%= data.class_enrolled %>
+                                    </span>
+                                </p>
+                            </div>
+                            <% }) %>
+                                <!-- ------------------- -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- --POPUP BOX-- -->
+            <div class="modal-container hide">
+                <div class="popupModal mainModal">
+
+                </div>
             </div>
         </main>
-    </div>
 
-    <div class="overlay hide"></div>
-    <div class="pop-content hide">
-        <button id="close-pop" class="drop-title btn" onclick="closePopup()"><span class="material-symbols-outlined">
-            close
-        </span></button>
-        <div class="form-el">
-           
-        </div>
-    </div>
-    <script src="../../static/app/js/script.js"></script>
+        <!-- javascript -->
+        <script src="../../static/app/js/index.js"></script>
+        <script src="../../static/app/js/script.js"></script>
 </body>
 
 </html>

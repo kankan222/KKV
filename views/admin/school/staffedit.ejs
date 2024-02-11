@@ -7,97 +7,157 @@
     <title>Admin | Staff | KKV</title>
 
     <!-- CSS  -->
+    <link rel="stylesheet" href="/static/app/css/admincss/header.css">
+    <link rel="stylesheet" href="/static/app/css/admincss/modal.css">
     <link rel="stylesheet" href="/static/app/css/admincss/adm-staff.css">
     <!-- Icons Css  -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
 </head>
 
 <body>
-    <main>
-        <div class="staff-header-container flex wigin">
-            <h3 class="uppercase color">School Staff</h3>
-            <a class="btn" onclick="openModalwindow()">Add <i class="uil uil-plus-circle"></i></a>
-        </div>
-        <div class="staff-header-container flex wigin">
-            <a class="btn">Head-Staff</a>
-            <a class="btn">Non-Teaching Staff</i></a>
-            <a class="btn">Teaching-Staff</a>
-        </div>
-        <!-- ---------IMAGE-CONTAINER-------------- -->
-        <div class="staff-img-grid wigin">
-            <!-- --------------BOX START-------------- -->
-            <% result?.forEach((el)=>{ %>
-                <div class="field flex">
-                    <img src="/static/<%= el.stuff_img %>" alt="img">
-                    <div class="field-data">
-                        <p class="staff-name">
-                            <span>Name:</span> <span><%= el.name %></span>
-                        </p>
-                        <p class="staff-deg">
-                            <span>Degree:</span> <span>MBBS, MS, Phd</span>
-                        </p>
-                        <p class="staff-designation">
-                            <span>Designation:</span> <span>Rector</span>
-                        </p>
-                        <p class="staff-subject">
-                            <span>Subject:</span> <span>Philosophy</span>
-                        </p>
-                    </div>
-                    <a class="btn" onclick=""><i class="uil uil-pen"></i><span>Edit</span></a>
-                </div>
-            <% }) %>
-            <!-- ----------BOX END---------- -->
-        </div>
-        <!-- --------POPUP BOX----------- -->
-        <div class="modal-container hide">
-            <div class="popupModal">       
-                <form id="add-stuff">
-                    <div class="field flex">
-                        <h4 class="uppercase color"><span>Add</span> staff-details</h4>
-                    </div>
-                    <hr>
-                    <div class="field flex">
-                        <img src="/static/assets/admin-staff/rector.jpg" alt="img">
-                        <input type="file" name="stuff-img" id="file-staff" value="herii.jpg">
-                        <a class="btn" onclick="">Upload <i class="uil uil-image-upload"></i></a>
-                    </div>
-                    <div class="field flex">
-                        <select name="category" onchange="showMoreFormdetails(this)">
-                            <option value="">--Select Category First--</option>
-                            <option value="HeadStaff">HeadStaff</option>
-                            <option value="Tstuff">Teaching stuff</option>
-                            <option value="Ntuff">Non teaching Stuff</option>
-                        </select>
-                    </div>
-                    <div class="pop-grid">
-                        <div class="field">
-                            <label for="sname">Name</label>
-                            <input type="text" name="name" placeholder="e.g.: Anu Malik">
-                        </div>
-                        <div class="field">
-                            <label for="sname">Position</label>
-                            <input type="text" name="postion" placeholder="e.g.: M.Sc., M.Phil.">
-                        </div>
-                        <div class="field">
-                            <label for="sname">Qualification</label>
-                            <input type="text" name="designation"  placeholder="e.g.: Assistant">
-                        </div>
-                        <div class="field">
-                            <label for="sname">Subject</label>
-                            <input type="text" name="subject" placeholder="e.g.: Assamese">
-                        </div>    
-                    </div>
-                </form>
-                <div class="field field-btns flex">
-                    <a class="btn uppercase" onclick="sendStuffData()">update</a>
-                    <a class="btn uppercase" onclick="closeModalwindow()">cancel</a>
-                </div>
-            </div>
-        </div>
-    </main>
+    <!-- --HEADER-- -->
+    <%- include('../partials/header.ejs') %>
 
-    <!-- javascript -->
-    <script src="/static/app/js/gal.js"></script>
+        <main>
+            <!-- --NAV-LISTS-- -->
+            <%- include('../partials/nav.ejs') %>
+
+                <div class="content-container"><!-- for display property -->
+                    <div class="staff-header-container common-container flex">
+                        <h3 class="uppercase color">School Staff</h3>
+                        <a class="btn" onclick="openModalwindow('modal-container-add')">Add <i class="uil uil-plus-circle"></i></a>
+                    </div>
+                    <div class="staff-type-container common-container flex">
+                        <a class="btn" id="Head-staff" onclick="filterCat(this)">Head-Staff</a>
+                        <a class="btn" id="Non-Teaching-staff" onclick="filterCat(this)">Non-Teaching</i></a>
+                        <a class="btn" id="Teaching-staff" onclick="filterCat(this)">Teaching</a>
+                    </div>
+                    <!-- ---------IMAGE-CONTAINER-------------- -->
+                    <div class="staff-img-grid wigin" id="filterCat">
+                        <!-- --------------BOX START-------------- -->
+                        <% result?.forEach((el)=>{ %>
+                            <div class="field flex" data-category="<%= el.category %>">
+                                <img src="/static/<%= el.stuff_img %>" alt="img">
+                                <div class="field-data">
+                                    <p class="staff-name">
+                                        <span>Category:</span> <span><%= el.category.toUpperCase() %></span>
+                                    </p>
+                                    <p class="staff-name">
+                                        <span>Name:</span> <span><%= el.name %></span>
+                                    </p>
+                                    <p class="staff-deg">
+                                        <span>Degree:</span> <span><%= el.designation ? el.designation : "N/A" %></span>
+                                    </p>
+                                    <p class="staff-designation">
+                                        <span>Position:</span> <span><%= el.position %></span>
+                                    </p>
+                                    <p class="staff-subject">
+                                        <span>Subject:</span> <span><%= el.subject ? el.subject : "N/A" %></span>
+                                    </p>
+                                </div>
+                                <a class="btn pen" data-tid="<%= el.t_id %>" onclick="editStuff(this)"><i class="uil uil-pen"></i><span>Edit</span></a>
+                                <a class="btn trash" data-tid="<%= el.t_id %>" onclick="deleteStuff(this, 'school')"><i class="uil uil-trash"></i></a>
+                            </div>
+                            <% }) %>
+                                <!-- ----------BOX END---------- -->
+                    </div>
+                </div>
+                <!-- --------POPUP BOX----------- -->
+                <div class="modal-container hide" id="modal-container-add">
+                    <div class="popupModal">       
+                        <form id="add-stuff">
+                            <div class="field flex">
+                                <h4 class="uppercase color"><span>Add</span> staff-details</h4>
+                            </div>
+                            <hr>
+                            <div class="field flex">
+                                <img src="/static/assets/admin-staff/rector.jpg" alt="img">
+                                <input type="file" name="stuff-img" value="herii.jpg">
+                                <a class="btn" onclick="">Upload <i class="uil uil-image-upload"></i></a>
+                            </div>
+                            <div class="field">
+                                <select name="category" onchange="showMoreFormdetails(this)">
+                                    <option hidden>--Select Category First--</option>
+                                    <option value="Head-staff">HeadStaff</option>
+                                    <option value="Teaching-staff">Teaching stuff</option>
+                                    <option value="Non-Teaching-staff">Non teaching Stuff</option>
+                                </select>
+                            </div>
+                            <div class="pop-grid" id="form-ex">
+                                <div class="field hide">
+                                    <label for="sname">Name</label>
+                                    <input type="text" name="name" placeholder="e.g.: Anu Malik">
+                                </div>
+                                <div class="field hide">
+                                    <label for="sname">Position</label>
+                                    <input type="text" name="position" placeholder="e.g.: M.Sc., M.Phil.">
+                                </div>
+                                <div class="field hide">
+                                    <label for="sname">Qualification</label>
+                                    <input type="text" name="designation"  placeholder="e.g.: Assistant">
+                                </div>
+                                <div class="field hide">
+                                    <label for="sname">Subject</label>
+                                    <input type="text" name="subject" placeholder="e.g.: Assamese">
+                                </div>    
+                            </div>
+                        </form>
+                        <div class="field field-btns flex">
+                            <a class="btn uppercase" onclick="sendStuffData('add-stuff', 'school')">update</a>
+                            <a class="btn uppercase" onclick="closeModalwindow('modal-container-add')">cancel</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-container hide" id="modal-container-edit">
+                    <div class="popupModal">       
+                        <form id="edit-stuff">
+                            <div class="field flex">
+                                <h4 class="uppercase color"><span>Add</span> staff-details</h4>
+                            </div>
+                            <hr>
+                            <div class="field flex hide">
+                                <select name="category" onchange="showMoreFormdetails(this)" id="edit-category">
+                                    <option hidden>--Select Category First--</option>
+                                    <option value="Head-staff">HeadStaff</option>
+                                    <option value="Teaching-staff">Teaching stuff</option>
+                                    <option value="Non-Teaching-staff">Non teaching Stuff</option>
+                                </select>
+                            </div>
+                            <div class="field flex">
+                                <img id="stuffImg" src="/static/assets/admin-staff/rector.jpg" alt="img">
+                                <input type="file" name="stuff-img" id="file-staff" value="/static/assets/admin-staff/rector.jpg">
+                                <a class="btn" onclick="">Upload <i class="uil uil-image-upload"></i></a>
+                            </div>
+                            <div class="pop-grid" id="form-ex-edit">
+                                <div class="field">
+                                    <label for="sname">Name</label>
+                                    <input type="text" name="name" placeholder="e.g.: Anu Malik">
+                                </div>
+                                <div class="field">
+                                    <label for="sname">Position</label>
+                                    <input type="text" name="position" placeholder="e.g.: M.Sc., M.Phil.">
+                                </div>
+                                <div class="field">
+                                    <label for="sname">Qualification</label>
+                                    <input type="text" name="designation"  placeholder="e.g.: Assistant">
+                                </div>
+                                <div class="field">
+                                    <label for="sname">Subject</label>
+                                    <input type="text" name="subject" placeholder="e.g.: Assamese">
+                                </div>    
+                            </div>
+                        </form>
+                        <div class="field field-btns flex">
+                            <a class="btn uppercase tid" id="" onclick="updateStuff('school')">update</a>
+                            <a class="btn uppercase" onclick="closeModalwindow('modal-container-edit')">cancel</a>
+                        </div>
+                    </div>
+                </div>
+        </main>
+
+        <!-- javascript -->
+        <script src="/static/app/js/index.js"></script>
+        <script src="/static/app/js/gal.js"></script>
 </body>
 
 </html>

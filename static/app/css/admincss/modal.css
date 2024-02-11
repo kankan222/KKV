@@ -1,0 +1,104 @@
+/* ----MODAL CONTAINER-- */
+.modal-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: var(--black-light);
+    width: 100%;
+    height: 100vh;
+    z-index: 50;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
+
+.popupModal {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 350px;
+    max-width: 950px;
+    width: 100%;
+    background: var(--white);
+    box-shadow: var(--box-shadow-primary);
+    padding: var(--padding-rem-1);
+    border-radius: var(--border-radius-1);
+}
+.popupModal img {
+    width: 100px;
+    height: 100px;
+    /* aspect-ratio: 1; */
+    display: block;
+}
+
+.field {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    position: relative;
+}
+
+form .field a {
+    font-size: 12px;
+    padding: 5px;
+}
+
+form .field label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--grey);
+    margin-bottom: 5px;
+    position: absolute;
+    top: 0;
+    padding: 0 8px;
+    transform: translateX(10px) translateY(1px);
+    background: var(--white);
+    border-left: 1px solid var(--black-light);
+    border-right: 1px solid var(--black-light);
+}
+
+form .field input:not([type="file"]), form .field select {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border: none;
+    outline: 1px solid var(--black-light);
+    border-radius: var(--border-radius-1);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    z-index: 5;
+}
+
+form .field input:not([type="file"]):hover {
+    outline: 1px solid var(--primary-outline);
+}
+
+form .field input:not([type="file"]):focus {
+    outline: 1px solid var(--primary-color);
+}
+.field-btns{
+    margin-top: 1rem;
+}
+.field-btns a{
+    flex-grow: 1;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 14px;
+}
+.field-btns a:first-child{
+    background: var(--green-bg);
+    outline: 1px solid var(--green-outline);
+    color: var(--green);
+}
+.field-btns a:last-child{
+    background: var(--red-light-color);
+    outline: 1px solid var(--red-outline);
+    color: var(--red);
+}
+.field-btns a:first-child:hover{
+    box-shadow: var(--box-shadow-green);
+}
+.field-btns a:last-child:hover{
+    box-shadow: var(--box-shadow-red);
+}
