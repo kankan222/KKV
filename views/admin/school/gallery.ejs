@@ -17,7 +17,7 @@
     <main>
         <div class="staff-header-container flex wigin">
             <h3 class="uppercase color">Gallery</h3>
-            <a class="btn" onclick="openModalwindow()">Upload <i class="uil uil-image-upload"></i></a>
+            <a class="btn" onclick="openModalwindow('img-contain')">Upload <i class="uil uil-image-upload"></i></a>
         </div>
 
         <div class="gallery-container flex wigin">
@@ -30,7 +30,7 @@
         </div>
 
         <!-- --POPUP BOX-- -->
-        <div class="modal-container hide">
+        <div class="modal-container hide" id="img-contain">
             <div class="popupModal galleryModal">
                 <form id="gallery-img">
                     <div class="field">
@@ -39,7 +39,7 @@
                 </form>
                 <div class="field field-btns flex">
                     <a class="btn" onclick="insertGalleryImage('school')">Upload <i class="uil uil-image-upload"></i></a>
-                    <a class="btn uppercase" onclick="closeModalwindow()">cancel</a>
+                    <a class="btn uppercase" onclick="closeModalwindow('img-contain')">cancel</a>
                 </div>
             </div>
         </div>

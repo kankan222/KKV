@@ -2,11 +2,9 @@ const express = require('express');
 const router = express.Router()
 const controlls = require('../../controller/admin/adm.controll')
 const multer = require('multer')
-const path = require('path')
+const path = require('path');
+const { checkRoute } = require('../../controller/admin/auth');
 const rootPath = process.cwd();
-
-router.use(express.urlencoded({extended: true}))
-router.use(express.json())
 
 const storage = multer.diskStorage({
    destination: function (req, file, cb) {cb(null, path.join(rootPath, 'static/assets/school-st'));},
@@ -30,15 +28,18 @@ const storage = multer.diskStorage({
    { name: 'sbc-photo', maxCount: 1 }
  ]
 
+
+
 router.post('/school-student-form', upload.fields(photoField), controlls.schoolStudentsForm)
 
-// school admission form data to admin
-
-router.get('/admin/school', controlls.renderSchoolFormData)
+// school admission form data to admin ------------------
+router.get('/admin/school', checkRoute, controlls.renderSchoolFormData)
 router.get('/get-each-school-student-data', controlls.getEachSchoolStudentData)
 
 //school stuff route -----------------
-router.get('/school-stuff-edit', controlls.renderSchoolStuff)
+router.get('/school-stuff-edit', checkRoute, controlls.renderSchoolStuff)
 router.post('/school-stuff-add',  uploadStuff.single('stuff-img'), controlls.addSchoolStuff)
+router.delete('/school-stuff-delete', controlls.deleteSchoolStuff)
+router.put('/school-stuff-update', uploadStuff.single('stuff-img'), controlls.updateSchoolStuff)
 
 module.exports = router;

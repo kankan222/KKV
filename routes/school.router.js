@@ -1,11 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const db = require('../db/db.config')
 const { schoolGalleryRender } = require('../controller/admin/adm.controll');
 
 
-router.get('/', (req, res) => {
-    res.status(200).render(path.join(__dirname, '../views/school.index.ejs'))
+router.get('/', async (req, res) => {
+    const q = `select * from gallery order by img_id desc limit 4;`
+    await db.query(q, (err, results) => {
+        if (!err) {
+            res.status(200).render(path.join(__dirname, '../views/school.index.ejs'), {results})
+        }
+    })
 })
 router.get('/school-aboutUs', (req, res) => {
     res.status(200).render(path.join(__dirname, '../views/SCHOOL/main/aboutUs.ejs'))
@@ -52,10 +58,15 @@ router.get('/school-rules', (req, res) => {
 
     )
 })
-router.get('/school-staff', (req, res) => {
-    res.status(200).render(path.join(__dirname, '../views/SCHOOL/staff.ejs')
-    
-    )
+router.get('/school-staff', async (req, res) => {
+   const q = `select * from school_stuff;`
+   await db.query(q, (err, results) => {
+    if (!err) {
+        res.status(200).render(path.join(__dirname, '../views/SCHOOL/staff.ejs'), {results})
+    }else {
+        res.status(500).redirect('/fh')
+    }
+   })
 })
 router.get('/school-facilities', (req, res) => {
     res.status(200).render(path.join(__dirname, '../views/SCHOOL/facilities.ejs')

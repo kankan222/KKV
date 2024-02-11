@@ -33,15 +33,6 @@ CREATE TABLE college_student_info (
 
 INSERT INTO `college_student_info` (`id`, `name`, `dob`, `phno`, `email`, `gender`, `medium`, `caste`, `religion`, `address`, `district`, `state`, `country`, `pincode`, `board`, `percentage`, `yop`, `stream`, `sub`, `photo`, `bc_photo`, `ms_photo`, `sc_photo`) VALUES (NULL, 'iuhfhiwe', '2024-01-02', '3534636', 'efdveiuh', 'frft44rgt', 'rferyfguf', 'efirfir', 'rfugrugfuyg', 'hhghdgsfg', 'fgdfyue', 'fugrgyur', 'rfhrf', 'ehf', 'dheihf', '45', '34', 'irfr', 'fiurhhf4', 'rfrgfyug4uy', 'fihrfh', 'ihrfiurf', 'cfeggueu');
 
-create table college_stuff (
-    t_id int auto_increment primary key,
-    name varchar(100),
-    designation varchar(100) default null,
-    category varchar(100),
-    subject varchar(100) default null,
-    position varchar(100) default null,
-)
-
 create table school_stuff (
     t_id int auto_increment primary key,
     name varchar(100),
@@ -49,6 +40,17 @@ create table school_stuff (
     category varchar(100),
     subject varchar(100) default null,
     position varchar(100) default null,
+    stuff_img varchar(500)
+)
+
+create table college_stuff (
+    t_id int auto_increment primary key,
+    name varchar(100),
+    designation varchar(100) default null,
+    category varchar(100),
+    subject varchar(100) default null,
+    position varchar(100) default null,
+    stuff_img varchar(500)
 )
 
 insert into college_stuff (name, designation, category,  subject, position) values ('bidhan', null, 'xyz', 'abc', 'x')

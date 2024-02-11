@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/app/css/admincss/gallery.css" />
-    <title>Document</title>
-</head>
-<body>
-    <h1>Here is the gallery</h1>
-    <div class="container">
-        <div class="galleryBox">
-            <form id="gallery-img">
-                <input type="file" name="coll-gallery" multiple="true" /><br>
-                <button class="btn" type="button" onclick="insertGalleryImage()">Submit</button>
-            </form>
-        </div>
-        <div class="top">
-            <ul>
-               <% results?.forEach((el)=>{ %>
-                <li><img src="/static/<%= el.img_link %>" id="<%= el.img_id %>" onclick="deleteSchoolGalleryImage(this)"></li>
-               <% }) %>
-            </ul>
-          </div>
-      </div>
+    <title>Admin | Gallery | KKV</title>
 
-      <script src="../../static/app/js/gal.js"></script>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/static/app/css/admincss/adm-staff.css">
+    <link rel="stylesheet" href="/static/app/css/admincss/adm-staff.css">
+    <!-- Icons Css  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+</head>
+
+<body>
+    <main>
+        <div class="staff-header-container flex wigin">
+            <h3 class="uppercase color">Gallery</h3>
+            <a class="btn" onclick="openModalwindow('img-contain')">Upload <i class="uil uil-image-upload"></i></a>
+        </div>
+
+        <div class="gallery-container flex wigin">
+            <% results?.forEach((el)=>{ %>
+                <div class="image-container">
+                    <i class="uil uil-trash-alt" id="<%= el.img_id %>" onclick="deleteSchoolGalleryImage(this, 'college')"></i>
+                    <img src="/static/<%= el.img_link %>" alt="image">
+                </div>
+            <% }) %>
+        </div>
+
+        <!-- --POPUP BOX-- -->
+        <div class="modal-container hide" id="img-contain">
+            <div class="popupModal galleryModal">
+                <form id="gallery-img">
+                    <div class="field">
+                        <input type="file" name="coll-gallery" id="file-staff" multiple="true">
+                    </div>
+                </form>
+                <div class="field field-btns flex">
+                    <a class="btn" onclick="insertGalleryImage('college')">Upload <i class="uil uil-image-upload"></i></a>
+                    <a class="btn uppercase" onclick="closeModalwindow('img-contain')">cancel</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- javascript -->
+    <script src="/static/app/js/admStaff.js"></script>
+    <script src="/static/app/js/gal.js"></script>
 </body>
+
 </html>

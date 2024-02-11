@@ -221,10 +221,13 @@
         <a onclick="location.href = `/gallery`" class="btn">View All</a>
       </div>
       <div class="image-container flex">
-        <img src="/static/assets/gallery/image-1.jpeg" alt="image">
+        <% results?.forEach((el)=>{ %>
+          <img src="/static<%= el.img_link %>" alt="image">
+        <% }) %>
+        <!-- <img src="/static/assets/gallery/image-1.jpeg" alt="image">
         <img src="/static/assets/gallery/image-4.jpeg" alt="image">
         <img src="/static/assets/gallery/image-7.jpeg" alt="image">
-        <img src="/static/assets/gallery/image-12.jpeg" alt="image">
+        <img src="/static/assets/gallery/image-12.jpeg" alt="image"> -->
       </div>
     </section>
     <!-- ========================================================================

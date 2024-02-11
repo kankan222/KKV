@@ -1,10 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const path =require('path')
+const db = require('../db/db.config')
 
-
-router.get('/home', (req, res) => {
-    res.status(200).render(path.join(__dirname,'../views/college.index.ejs'))
+router.get('/home', async (req, res) => {
+    const q = `select * from collgallery order by img_id desc limit 4;`
+    await db.query(q, (err, results) => {
+        if (!err) {
+          res.status(200).render(path.join(__dirname,'../views/college.index.ejs'), {results})
+        }
+    })
 })
 router.get('/about-us', (req, res) => {
     res.status(200).render(path.join(__dirname,'../views/main-pages/aboutUs.ejs'))
@@ -27,8 +32,14 @@ router.get('/academic', (req, res) => {
 router.get('/advisor', (req, res) => {
     res.status(200).render(path.join(__dirname,'../views/main-pages/advisor.ejs'))
 })
-router.get('/staff', (req, res) => {
-    res.status(200).render(path.join(__dirname,'../views/pages/staff.ejs'))
+router.get('/staff', async (req, res) => {
+    const q = `select * from college_stuff;`
+    await db.query(q, (err, results) => {
+        if (!err) {
+          res.status(200).render(path.join(__dirname,'../views/pages/staff.ejs'), {results})
+        }
+    })
+   
 })
 router.get('/fee-structure', (req, res) => {
     res.status(200).render(path.join(__dirname,'../views/pages/feeStructure.ejs'))
