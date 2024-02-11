@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF | Admin</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-    </style>
 </head>
+
 <body>
-    <main>
-        <div>
-            <div class="container" style="padding: 2rem; border-radius: 5px; position: relative;">
+    <div>
+        <div class="container"
+            style="padding: 2rem; border-radius: 5px; position: relative; page-break-after: always; margin: 0; box-sizing: border-box;">
+            <page size="A4">
                 <div style="padding: 3rem; border-radius: 5px; outline: 1px solid rgba(0, 0, 0, 0.5);">
+                    <div>
+                        <h1
+                            style="color: hsla(9, 77%, 51%, 0.1); font-size: 10rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1;">
+                            KKV</h1>
+                    </div>
                     <div class="field field-image" style="position: absolute; top: 5rem; right: 5rem;">
-                        <img src="/static/assets/admin-staff/rector.jpg" alt="" style="display: block; width: 150px; height: 150px; object-fit: cover; object-position: center; border-radius: 5px;">
+                        <img src="/static/assets/admin-staff/rector.jpg" alt=""
+                            style="display: block; width: 150px; height: 150px; object-fit: cover; object-position: center; border-radius: 5px;">
                     </div>
                     <div>
-                        <h3 style="text-transform: uppercase; text-align: center; margin-top: 1rem; text-decoration: underline;">general information</h3>
+                        <h3
+                            style="text-transform: uppercase; text-align: center; margin-top: 1rem; text-decoration: underline;">
+                            general information</h3>
                     </div>
                     <div style="display: flex; align-items: center; margin-bottom: 8px; font-size: 18px;">
                         <p><span>Name:</span> <b>Kankan Jyoti Nath</b></p>
@@ -65,7 +69,9 @@
                         </div>
                     </div>
                     <div>
-                        <h3 style="text-transform: uppercase; text-align: center; margin-top: 1rem; text-decoration: underline;">medical information</h3>
+                        <h3
+                            style="text-transform: uppercase; text-align: center; margin-top: 1rem; text-decoration: underline;">
+                            medical information</h3>
                     </div>
                     <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem;">
                         <div style="display: flex; align-items: center; margin-bottom: 8px; font-size: 18px;">
@@ -76,7 +82,9 @@
                         </div>
                     </div>
                     <div>
-                        <h3 style="text-transform: uppercase; text-align: center; margin-top: 1rem; text-decoration: underline;">Parent's information</h3>
+                        <h3
+                            style="text-transform: uppercase; text-align: center; margin-top: 1rem; text-decoration: underline;">
+                            Parent's information</h3>
                     </div>
                     <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem; ">
                         <div style="display: flex; align-items: center; margin-bottom: 8px; font-size: 18px;">
@@ -119,7 +127,9 @@
                         </div>
                     </div>
                     <div>
-                        <h3 style="text-transform: uppercase; text-align: center; margin-top: 1rem; text-decoration: underline;">address</h3>
+                        <h3
+                            style="text-transform: uppercase; text-align: center; margin-top: 1rem; text-decoration: underline;">
+                            address</h3>
                     </div>
                     <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem; ">
                         <div style="display: flex; align-items: center; margin-bottom: 8px; font-size: 18px;">
@@ -142,8 +152,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </page>
         </div>
-    </main>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            page[size="A4"]{
+                width: 740px;
+                height: 1000px;
+            }
+        </style>
+    </div>
 </body>
+
 </html>
