@@ -7,27 +7,36 @@
     <title>Admin | Gallery | KKV</title>
 
     <!-- CSS  -->
-    <link rel="stylesheet" href="/static/app/css/admincss/adm-staff.css">
-    <link rel="stylesheet" href="/static/app/css/admincss/adm-staff.css">
+    <link rel="stylesheet" href="/static/app/css/admincss/header.css">
+    <link rel="stylesheet" href="/static/app/css/admincss/modal.css">
+    <link rel="stylesheet" href="/static/app/css/admincss/gallery.css">
     <!-- Icons Css  -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
 </head>
 
 <body>
+    <%- include('../partials/college.header.ejs') %>
     <main>
-        <div class="staff-header-container flex wigin">
-            <h3 class="uppercase color">Gallery</h3>
-            <a class="btn" onclick="openModalwindow('img-contain')">Upload <i class="uil uil-image-upload"></i></a>
+        <!-- --NAV-LISTS-- -->
+        <%- include('../partials/college.nav.ejs') %>
+
+        <!-- --CONTENT-- -->
+        <div class="content-container"><!-- for display property -->
+            <div class="common-container flex">
+                <h3 class="uppercase color">Gallery</h3>
+                <a class="btn" onclick="openModalwindow('img-contain')">Upload <i class="uil uil-image-upload"></i></a>
+            </div>
+    
+            <div class="gallery-container common-container flex">
+                <% results?.forEach((el)=>{ %>
+                    <div class="image-container">
+                        <i class="uil uil-trash-alt" id="<%= el.img_id %>" onclick="deleteSchoolGalleryImage(this, 'college')"></i>
+                        <img src="/static/<%= el.img_link %>" alt="image">
+                    </div>
+                <% }) %>
+            </div>
         </div>
 
-        <div class="gallery-container flex wigin">
-            <% results?.forEach((el)=>{ %>
-                <div class="image-container">
-                    <i class="uil uil-trash-alt" id="<%= el.img_id %>" onclick="deleteSchoolGalleryImage(this, 'college')"></i>
-                    <img src="/static/<%= el.img_link %>" alt="image">
-                </div>
-            <% }) %>
-        </div>
 
         <!-- --POPUP BOX-- -->
         <div class="modal-container hide" id="img-contain">
@@ -47,7 +56,7 @@
 
 
     <!-- javascript -->
-    <script src="/static/app/js/admStaff.js"></script>
+    <script src="/static/app/js/index.js"></script>
     <script src="/static/app/js/gal.js"></script>
 </body>
 

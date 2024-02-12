@@ -1,5 +1,9 @@
 function openNav(){
-    document.querySelector(`nav`).style.display = "block";
+    document.querySelector(`nav`).classList.toggle(`open`);
+    document.querySelector(`#hamburger i`).classList.toggle(`uil-times`)
+}
+function closeNav(){
+    document.querySelector(`nav`).style.display = `none`;
 }
 // (()=>{
 //     let pageCtn=document.querySelector('nav')

@@ -17,7 +17,6 @@
 <body>
     <%- include('../partials/header.ejs') %>
     <main>
-<<<<<<< HEAD
         <!-- --NAV-LISTS-- -->
         <%- include('../partials/nav.ejs') %>
 
@@ -25,7 +24,7 @@
         <div class="content-container"><!-- for display property -->
             <div class="common-container flex">
                 <h3 class="uppercase color">Gallery</h3>
-                <a class="btn" onclick="openModalwindow()">Upload <i class="uil uil-image-upload"></i></a>
+                <a class="btn" onclick="openModalwindow('img-contain')">Upload <i class="uil uil-image-upload"></i></a>
             </div>
     
             <div class="gallery-container common-container flex">
@@ -36,11 +35,6 @@
                     </div>
                 <% }) %>
             </div>
-=======
-        <div class="staff-header-container flex wigin">
-            <h3 class="uppercase color">Gallery</h3>
-            <a class="btn" onclick="openModalwindow('img-contain')">Upload <i class="uil uil-image-upload"></i></a>
->>>>>>> 60457cf48f2e5d0e9bd93c92bb41c390d9727957
         </div>
 
 
@@ -53,13 +47,8 @@
                     </div>
                 </form>
                 <div class="field field-btns flex">
-<<<<<<< HEAD
-                    <a class="btn uppercase" onclick="insertGalleryImage('school')">Upload <i class="uil uil-image-upload"></i></a>
-                    <a class="btn uppercase" onclick="closeModalwindow()">cancel</a>
-=======
                     <a class="btn" onclick="insertGalleryImage('school')">Upload <i class="uil uil-image-upload"></i></a>
                     <a class="btn uppercase" onclick="closeModalwindow('img-contain')">cancel</a>
->>>>>>> 60457cf48f2e5d0e9bd93c92bb41c390d9727957
                 </div>
             </div>
         </div>

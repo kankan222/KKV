@@ -137,8 +137,9 @@ hr {
 .color {
     color: var(--primary-color);
 }
+
 /* header starts here  */
-header{
+header {
     height: 3rem;
     padding: var(--padding-rem-3);
     border-bottom: 1px solid var(--primary-outline);
@@ -150,20 +151,24 @@ header{
     width: 100%;
     z-index: 50;
 }
-#hamburger{
+
+#hamburger {
     display: none;
 }
-#hamburger i{
+
+#hamburger i {
     font-size: 1.5rem;
     color: var(--black);
     padding: 0 5px;
     border-radius: var(--border-radius-1);
     cursor: pointer;
 }
-#hamburger:hover i{
+
+#hamburger:hover i {
     color: var(--primary-color);
     background: var(--primary-light-color);
 }
+
 /* main starts here  */
 main {
     position: relative;
@@ -171,18 +176,21 @@ main {
     grid-template-columns: 15rem 1fr;
     margin-top: 4rem;
 }
+
 /* --NAVBAR-- */
-nav{
+nav {
     background: var(--white);
     height: 100vh;
     position: relative;
 }
-nav ul li{
+
+nav ul li {
     display: inline-block;
     width: 100%;
     cursor: pointer;
 }
-nav ul li a{
+
+nav ul li a {
     height: 3rem;
     margin-left: 1rem;
     padding-left: 1rem;
@@ -193,30 +201,35 @@ nav ul li a{
     font-weight: 600;
     width: 87%;
     border-radius: var(--border-radius-1);
-    
+
 }
-nav ul li a:is(:hover, .active){
+
+nav ul li a:is(:hover, .active) {
     background: var(--primary-light-color);
     color: var(--primary-color);
 }
-nav ul li a i{
+
+nav ul li a i {
     font-size: 1.2rem;
 }
-nav ul li:last-child{
+
+nav ul li:last-child {
     position: absolute;
     top: 75%;
     left: 0;
 }
-nav ul li a:last-child:hover{
+
+nav ul li a:last-child:hover {
     background: var(--red-light-color);
     color: var(--red);
 }
-.content-container{
+
+.content-container {
     border-top-left-radius: var(--border-radius-1);
     padding: var(--padding-rem-1) var(--padding-rem-2);
 }
 
-.common-container{
+.common-container {
     padding: var(--padding-2);
     box-shadow: var(--box-shadow-primary);
     border-radius: var(--border-radius-1);
@@ -228,25 +241,37 @@ nav ul li a:last-child:hover{
 
 /* --RESPONSIVE-- */
 @media (max-width: 748px) {
-    header{
+    header {
         padding: var(--padding-rem-3) var(--padding-rem-1);
         box-shadow: var(--box-shadow-primary);
     }
-    #hamburger{
+
+    #hamburger {
         display: block;
     }
-    main{
+
+    main {
         grid-template-columns: 1fr;
     }
-    nav{
+
+    nav {
         position: absolute;
         top: 0;
-        width: 70%;
-        display: none;
-        left: 0;
+        width: 100%;
+        left: -100%;
         background: var(--background);
+        transition: all 300ms ease;
     }
-    .content-container{
+    nav.open{
+        left: 0;
+    }
+
+    nav ul li a {
+        width: 90%;
+        margin: 0.8rem auto 0;
+    }
+
+    .content-container {
         padding: var(--padding-2);
     }
 }

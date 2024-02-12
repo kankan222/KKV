@@ -65,9 +65,10 @@ form .field input:not([type="file"]), form .field select {
     outline: 1px solid var(--black-light);
     border-radius: var(--border-radius-1);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 0.5rem;
     z-index: 5;
+    font-family: "Open Sans", sans-serif;
 }
 
 form .field input:not([type="file"]):hover {
@@ -76,6 +77,11 @@ form .field input:not([type="file"]):hover {
 
 form .field input:not([type="file"]):focus {
     outline: 1px solid var(--primary-color);
+}
+form .pop-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0.5rem;
 }
 .field-btns{
     margin-top: 1rem;

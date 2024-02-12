@@ -95,7 +95,7 @@
 
 .mainModal h4{
     text-decoration: underline;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     margin-top: 1rem;
     text-align: center;
 }
@@ -143,7 +143,10 @@
     cursor: pointer;
     right: 1rem;
 }
-
+/* ---COLLEGE--- */
+.f-grid{
+    grid-template-columns: repeat(5, 1fr);
+}
 
 
 /* --RESPONSIVE-- */
@@ -185,5 +188,9 @@
     }
     .element p{
         word-break: break-all;
+    }
+    .v-btn{
+        grid-template-columns: 1fr;
+        gap: 0;
     }
 }
