@@ -25,7 +25,7 @@ exports.schoolStudentsForm = async (req, res) => {
       pincode, class_enrolled, sst_photo, sbc_photo
    ], (err, result) => {
       if (!err) {
-         res.status(200).redirect('/school/schoolpdf')
+         res.status(200).redirect(`/school/schoolpdf?pdfid=${result.insertId}`)
       } else {
          console.log(err)
          res.status(500).send({ msg: "something error occured!" })
@@ -71,7 +71,7 @@ exports.collegeAdmission = async (req, res) => {
 
    await db.query(q, (err, result) => {
       if (!err) {
-         res.status(200).redirect('/school/schoolpdf')
+         res.status(200).redirect(`/school/schoolpdf?pdfid=${result.insertId}`)
       } else {
          console.log(err)
          res.status(500).send({ msg: 'Some error ocurred!' });

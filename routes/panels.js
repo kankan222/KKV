@@ -18,6 +18,22 @@ router.get('/gallery', async (req, res) => {
     })
    
 })
+
+router.get('/pdfdata', async (req, res) => {
+    if (req.query.type == 'school') {
+        const q = `select * from student_information where student_id = ${req.query.pdfid}`
+        await db.query(q, (err, results)=>{
+            if (!err) { res.status(200).send({results})
+            }else { res.status(500).send({msg: "Internal server error!"}) }
+        })
+    }else {
+        const q = `select * from college_student_info where student_id = ${req.query.pdfid}`
+        await db.query(q, (err, results)=>{
+            if (!err) { res.status(200).send({results})
+            }else { res.status(500).send({msg: "Internal server error!"}) }
+        })
+    }
+})
 router.get('/cs', (req, res) => {
     res.status(200).render(path.join(__dirname,'../views/cs/coms.ejs'))
 })

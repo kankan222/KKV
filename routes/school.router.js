@@ -86,7 +86,7 @@ router.get('/school-contact', (req, res) => {
 })
 
 router.get('/schoolpdf', (req, res) => {
-    res.status(200).render(path.join(__dirname, '../views/SCHOOL/schoolPDF.ejs'))
+    res.status(200).render(path.join(__dirname, '../views/SCHOOL/thankYou.ejs'))
 })
 
 
