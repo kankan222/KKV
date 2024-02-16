@@ -28,7 +28,7 @@
             <!-- --------------BOX START-------------- -->
             <% result?.forEach((el)=>{ %>
                 <div class="field flex" data-category="<%= el.category %>">
-                    <img src="/static/<%= el.stuff_img %>" alt="img">
+                    <img src="/static<%= el.stuff_img %>" alt="img">
                     <div class="field-data">
                         <p class="staff-name">
                             <span>Category:</span> <span><%= el.category.toUpperCase() %></span>
