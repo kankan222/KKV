@@ -1,361 +1,309 @@
 async function getPerStudentData(target) {
-    document.querySelector('.overlay').classList.remove('hide')
-    document.querySelector('.pop-content').classList.remove('hide')
+    document.querySelector('.modal-container').classList.remove('hide')
     const fet = await fetch(`/get-each-school-student-data?stid=${target.dataset.stid}`);
     const res = await fet.json()
     console.log(res.result[0])
-    renderPopUp(res.result[0], 'form-el')
+    renderPopUp(res.result[0], 'mainModal')
 }
 
-closePopup = function () {
-    document.querySelector('.overlay').classList.add('hide')
-    document.querySelector('.pop-content').classList.add('hide')
-}
-
-function menuBar(target) {
-    target.classList.add('hide')
-    document.querySelector('.sidebar').style.display = 'block'
-    document.querySelector('.operateC').classList.remove('hide')
-}
-
-function closeMenuBar(target) {
-    target.classList.add('hide')
-    document.querySelector('.sidebar').style.display = 'none'
-    document.querySelector('.operateM').classList.remove('hide')
+closeModalwindow = function () {
+    document.querySelector('.modal-container').classList.add('hide')
 }
 
 function renderPopUp(obj, targetClass) {
-    const html = `<h4>General Information</h4>
-    <div class="first-box">
-        <div class="st-img">
-            <img src="/static/${obj.photo_url}" alt="student-Photo">
-            <button class="btn">View birthCert</button>
-        </div>
-        <div class="text-box">
-            <div class="form-elem">
-                <span class="drop-title">Name</span>
-                <span class="drop-text">${obj.Name}</span>
+    const html = `<h4 class="uppercase color">General information</h4>
+    <span id="closeModal" onclick="closeModalwindow()"><i class="uil uil-multiply"></i></span>
+    <div class="p-flex">
+        <img src="/static/${obj.photo_url}" alt="img">
+        <div class="g-grid">
+            <div class="element">
+                <span class="uppercase">name</span>
+                <p class="pname">${obj.Name}</p>
             </div>
-            <div class="form-elem">
-                <span class="drop-title">DOB</span>
-                <span class="drop-text">${new Date(obj.DOB).toDateString()}</span>
+            <div class="element">
+                <span class="uppercase">DOB</span>
+                <p class="pname">${new Date(obj.DOB).toDateString()}</p>
             </div>
-            <div class="form-elem">
-                <span class="drop-title">Ph. number</span>
-                <span class="drop-text">${obj.ph_no}</span>
+            <div class="element">
+                <span class="uppercase">Aadhaar Card No.</span>
+                <p class="pname">${obj.Aadhaar_no}</p>
             </div>
-            <div class="form-elem">
-                <span class="drop-title">Aadhar no.</span>
-                <span class="drop-text">${obj.Aadhaar_no}</span>
+            <div class="element">
+                <span class="uppercase">Phone Number</span>
+                <p class="pname">+91 ${obj.ph_no}</p>
             </div>
-
-            <div class="form-elem">
-                <span class="drop-title">email</span>
-                <span class="drop-text">${obj.email}</span>
+            <div class="element">
+                <span class="uppercase">Email Id</span>
+                <p class="pemail">${obj.email}</p>
             </div>
-            <div class="form-elem">
-                <span class="drop-title">gender</span>
-                <span class="drop-text">${obj.gender}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">Nationality</span>
-                <span class="drop-text">${obj.nationality}</span>
-            </div>
-           
-        </div>
-        <div class="text-box">
-            <div class="form-elem">
-                <span class="drop-title">Religion</span>
-                <span class="drop-text">${obj.religion}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">Mother tongue</span>
-                <span class="drop-text">${obj.mother_tongue}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">Caste</span>
-                <span class="drop-text">${obj.caste}</span>
-            </div>
-
-            <div class="form-elem">
-                <span class="drop-title">Category</span>
-                <span class="drop-text">${obj.category}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">Last school</span>
-                <span class="drop-text">${obj.last_school}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">ph. disability</span>
-                <span class="drop-text">${obj.ph_disability}</span>
-            </div>
-
-            <div class="form-elem">
-                <span class="drop-title">Class</span>
-                <span class="drop-text">${obj.class}</span>
-            </div>
-           
-        </div>
-    </div>
-    <div class="sec-box">
-        <h4>Parent Details</h4>
-        <div class="down-text-box">
-            <div class="form-elem-down">
-                <div class="drop-title">Parents Name</div>
-                <div class="drop-text">${obj.father_name}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Qualification</div>
-                <div class="drop-text">${obj.father_qualification}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Occupation</div>
-                <div class="drop-text">${obj.father_occupation}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Ph no.</div>
-                <div class="drop-text">${obj.father_ph_no}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Email</div>
-                <div class="drop-text">${obj.father_email}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Corr. add.</div>
-                <div class="drop-text">${obj.father_correspondence_address}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Mother name</div>
-                <div class="drop-text">${obj.mother_name}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Qualification</div>
-                <div class="drop-text">${obj.mother_qualification}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Occupation</div>
-                <div class="drop-text">${obj.mother_occupation}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Ph. no</div>
-                <div class="drop-text">${obj.mother_ph_no}</div>
-            </div>
-            <div class="form-elem-down">
-                <div class="drop-title">Email</div>
-                <div class="drop-text">${obj.mother_email}</div>
-            </div>
-            <div class="form-elem-down">
-                <div class="drop-title">Corr. Add</div>
-                <div class="drop-text">${obj.mother_correspondence_address}</div>
-            </div>
-
-    </div>
-    </div>
-    <div class="sec-box">
-        <h4>Address</h4>
-        <div class="down-text-box">
-            <div class="form-elem-down">
-                <div class="drop-title">Residential add.</div>
-                <div class="drop-text">${obj.residential_address}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">District</div>
-                <div class="drop-text">${obj.district}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">State</div>
-                <div class="drop-text">${obj.state}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Country</div>
-                <div class="drop-text">${obj.country}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Pincode</div>
-                <div class="drop-text">${obj.pincode}</div>
+            <div class="element">
+                <span class="uppercase">Gender</span>
+                <p class="pname">${obj.gender}</p>
             </div>
         </div>
     </div>
-    <div class="sec-box">
-        <h4>Medical Information</h4>
-        <div class="down-text-box">
-            <div class="form-elem-down">
-                <div class="drop-title">Blood group</div>
-                <div class="drop-text">${obj.blood_group}</div>
-            </div>
-            <div class="form-elem-down">
-                <div class="drop-title">Identification Mark</div>
-                <div class="drop-text">${obj.identification_mark}</div>
-            </div>
+
+    <br>
+
+    <div class="e-grid g-grid">
+        <div class="element">
+            <span class="uppercase">NAtionality</span>
+            <p class="pname">${obj.nationality}</p>
         </div>
-    </div>`
+        <div class="element">
+            <span class="uppercase">Religion</span>
+            <p class="pname">${obj.religion}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Mother Tongue</span>
+            <p class="pname">${obj.mother_tongue}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Caste</span>
+            <p class="pname">${obj.caste}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Category</span>
+            <p class="pname">${obj.category}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Physical Problems/Disability</span>
+            <p class="pname">${obj.ph_disability}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Class Applied for</span>
+            <p class="pname">${obj.class_enrolled}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">School Last Attended</span>
+            <p class="pname">${obj.last_school}</p>
+        </div>
+    </div>
+
+    <h4 class="uppercase color">Medical information</h4>
+    <div class="g-grid">
+        <div class="element">
+            <span class="uppercase">Blood Group(Compulsory)</span>
+            <p class="pname">${obj.blood_group}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Identification Mark(Compulsory)</span>
+            <p class="pname">${obj.identification_mark}</p>
+        </div>
+    </div>
+
+    <h4 class="uppercase color">PARENT'S INFORMATION</h4>
+    <div class="g-grid e-grid">
+        <div class="element">
+            <span class="uppercase">Father's name</span>
+            <p class="pname">${obj.father_name}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Qualification</span>
+            <p class="pname">${obj.father_qualification}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Occupation</span>
+            <p class="pname">${obj.father_occupation}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Mobile no.</span>
+            <p class="pname">${obj.father_ph_no}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Email</span>
+            <p class="pname">${obj.father_email}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Correspondence address</span>
+            <p class="pname">${obj.father_correspondence_address}</p>
+        </div>
+    </div>
+    <br>
+    <div class="g-grid e-grid">
+        <div class="element">
+            <span class="uppercase">Mother's name</span>
+            <p class="pname">${obj.mother_name}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Qualification</span>
+            <p class="pname">${obj.mother_qualification}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Occupation</span>
+            <p class="pname">${obj.mother_occupation}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Mobile no.</span>
+            <p class="pname">${obj.mother_ph_no}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Email</span>
+            <p class="pname">${obj.mother_email}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Correspondence address</span>
+            <p class="pname">${obj.mother_correspondence_address}</p>
+        </div>
+    </div>
+
+    <h4 class="uppercase color">address</h4>
+    <div class="g-grid e-grid">
+        <div class="element">
+            <span class="uppercase">Residential Address</span>
+            <p class="pname">${obj.residential_address}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">District</span>
+            <p class="pname">${obj.district}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">State</span>
+            <p class="pname">${obj.state}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Country</span>
+            <p class="pname">${obj.country}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Pin Code</span>
+            <p class="pname">${obj.pincode}</p>
+        </div>
+    </div>
+    <a class="btn">View Birth Certificate <i class="uil uil-image"></i></a>`
     document.querySelector(`.${targetClass}`).innerHTML = "";
     document.querySelector(`.${targetClass}`).innerHTML = html
 }
 
 async function getCollegeEachStudentData(target) {
-    document.querySelector('.overlay').classList.remove('hide')
-    document.querySelector('.pop-content').classList.remove('hide')
+    document.querySelector('.modal-container').classList.remove('hide')
     const fet = await fetch(`/per-college-student-data?stid=${target.dataset.stid}`);
     const res = await fet.json()
     console.log(res.result[0])
-    renderCollegeStudentData(res.result[0], 'form-el')
+    renderCollegeStudentData(res.result[0], 'mainModal')
 }
 
 function renderCollegeStudentData(obj, targetClass) {
     const  subj =  obj?.sub.split(':')
-    const html = `<h4>General Information</h4>
-    <div class="first-box">
-        <div class="st-img">
-            <img src="/static/${obj.photo}" alt="student-Photo">
-            <button class="btn">View birthCert</button>
+    const html = `<h4 class="uppercase color">General information</h4>
+    <span id="closeModal" onclick="closeModalwindow()"><i class="uil uil-multiply"></i></span>
+    <div class="p-flex">
+        <img src="/static${obj.photo}" alt="img">
+        <div class="g-grid">
+            <div class="element">
+                <span class="uppercase">name</span>
+                <p class="pname">${obj.name}</p>
+            </div>
+            <div class="element">
+                <span class="uppercase">DOB</span>
+                <p class="pname">${new Date(obj.dob).toDateString()}</p>
+            </div>
+            <div class="element">
+                <span class="uppercase">Phone Number</span>
+                <p class="pname">+91 ${obj.phno}</p>
+            </div>
+            <div class="element">
+                <span class="uppercase">Email Id</span>
+                <p class="pemail">${obj.email}</p>
+            </div>
+            <div class="element">
+                <span class="uppercase">Gender</span>
+                <p class="pname">${obj.gender}</p>
+            </div>
+            <div class="element">
+                <span class="uppercase">Medium</span>
+                <p class="pname">${obj.medium}</p>
+            </div>
+            <div class="element">
+            <span class="uppercase">Religion</span>
+            <p class="pname">${obj.religion}</p>
         </div>
-        <div class="text-box">
-            <div class="form-elem">
-                <span class="drop-title">Name : </span>
-                <span class="drop-text">${obj.name}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">DOB : </span>
-                <span class="drop-text">${new Date(obj.dob).toDateString()}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">Ph. number : </span>
-                <span class="drop-text">${obj.phno}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">Email : </span>
-                <span class="drop-text">${obj.email}</span>
-            </div>
+        <div class="element">
+            <span class="uppercase">Caste</span>
+            <p class="pname">${obj.caste}</p>
         </div>
-        <div class="text-box">
-            <div class="form-elem">
-                <span class="drop-title">Gender : </span>
-                <span class="drop-text">${obj.gender}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">Caste : </span>
-                <span class="drop-text">${obj.caste}</span>
-            </div>
-
-            <div class="form-elem">
-                <span class="drop-title">Religion : </span>
-                <span class="drop-text">${obj.religion}</span>
-            </div>
-            <div class="form-elem">
-                <span class="drop-title">Medium : </span>
-                <span class="drop-text">${obj.medium}</span>
-            </div>
         </div>
     </div>
-    <div class="sec-box">
-        <h4>Qualification</h4>
-        <div class="down-text-box">
-            <div class="form-elem-down">
-                <div class="drop-title">Examination</div>
-                <div class="drop-text">Class X</div>
-            </div>
 
-            <div class="form-elem-down">
-                <div class="drop-title">Board</div>
-                <div class="drop-text">${obj.board}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Percentage</div>
-                <div class="drop-text">${obj.percentage}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Year of Pass</div>
-                <div class="drop-text">${obj.yop}</div>
-            </div>
-    </div>
-    </div>
-    <div class="sec-box">
-        <h4>Address</h4>
-        <div class="down-text-box">
-            <div class="form-elem-down">
-                <div class="drop-title">Residential add.</div>
-                <div class="drop-text">${obj.address}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">District</div>
-                <div class="drop-text">${obj.district}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">State</div>
-                <div class="drop-text">${obj.state}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Country</div>
-                <div class="drop-text">${obj.country}</div>
-            </div>
-
-            <div class="form-elem-down">
-                <div class="drop-title">Pincode</div>
-                <div class="drop-text">${obj.pincode}</div>
-            </div>
+    <h4 class="uppercase color">address</h4>
+    <div class="g-grid f-grid">
+        <div class="element">
+            <span class="uppercase">Residential Address</span>
+            <p class="pname">${obj.address}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">District</span>
+            <p class="pname">${obj.district}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">State</span>
+            <p class="pname">${obj.state}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Country</span>
+            <p class="pname">${obj.country}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Pin Code</span>
+            <p class="pname">${obj.pincode}</p>
         </div>
     </div>
-    <div class="sec-box">
-        <h4>Courses Applied</h4>
-        <div class="down-text-box">
-            <div class="form-elem-down">
-                <div class="drop-title">Subject 1</div>
-                <div class="drop-text">${subj[0]}</div>
-            </div>
-            <div class="form-elem-down">
-                <div class="drop-title">Subject 2</div>
-                <div class="drop-text">${subj[1]}</div>
-            </div>
-            <div class="form-elem-down">
-                <div class="drop-title">Subject 3</div>
-                <div class="drop-text">${subj[2]}</div>
-            </div>
-           <div class="form-elem-down">
-                <div class="drop-title">Subject 4</div>
-                <div class="drop-text">${subj[3]}</div>
-           </div>
-            <div class="form-elem-down">
-                <div class="drop-title">Subject 5</div>
-                <div class="drop-text">${subj[4]}</div>
-           </div>
-            <div class="form-elem-down">
-                <div class="drop-title">Subject 6</div>
-                <div class="drop-text">${subj[5]}</div>
-            </div>    
+    <h4 class="uppercase color">Qualification</h4>
+    <div class="g-grid e-grid">
+        <div class="element">
+            <span class="uppercase">Examination</span>
+            <p class="pname">Class X</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">board</span>
+            <p class="pname">${obj.board}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">percentge</span>
+            <p class="pname">${obj.percentage}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">Year of passing</span>
+            <p class="pname">${obj.yop}</p>
         </div>
     </div>
-    <div class="sec-box">
-    <h4>Documents</h4>
-    <div class="down-text-box">
-        <div class="form-elem-down">
-            <div class="drop-title">MarkSheet</div>
-            <button class="btn">view photo</button>
-        </div> 
-        <div class="form-elem-down">
-            <div class="drop-title">School Cert.</div>
-            <button class="btn">view photo</button>
-        </div> 
+    <h4 class="uppercase color">Course applied for</h4>
+    <div class="g-grid e-grid">
+        <div class="element">
+            <span class="uppercase">Stream</span>
+            <p class="pname">${obj.stream}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">subject 1</span>
+            <p class="pname">${subj[0]}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">subject 2</span>
+            <p class="pname">${subj[1]}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">subject 3</span>
+            <p class="pname">${subj[2]}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">subject 4</span>
+            <p class="pname">${subj[3]}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">subject 5</span>
+            <p class="pname">${subj[4]}</p>
+        </div>
+        <div class="element">
+            <span class="uppercase">subject 6</span>
+            <p class="pname">${subj[5]}</p>
+        </div>
     </div>
-</div>`
+    <h4 class="uppercase color">View Documents</h4>
+    <div class="g-grid v-btn">
+    <a class="btn">View Birth Certificate <i class="uil uil-image"></i></a>
+    <a class="btn">View Marksheet <i class="uil uil-file-minus"></i></a>
+    <a class="btn">View School Certificate <i class="uil uil-file"></i></a>
+    </div>`
     document.querySelector(`.${targetClass}`).innerHTML = "";
     document.querySelector(`.${targetClass}`).innerHTML = html
 }
