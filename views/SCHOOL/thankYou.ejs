@@ -41,12 +41,16 @@
     </style>
     <!-- Icons Css  -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.0/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <div class="container">
         <i class="uil uil-check"></i>
         <h2 class="uppercase color">THANK YOU</h2>
-        <a class="btn">Download PDF <i class="uil uil-arrow-to-bottom"></i></a>
+        <a class="btn" onclick="pdfDownload('school')">Download PDF <i class="uil uil-arrow-to-bottom"></i></a>
+        <button onclick="pdfDownload('school')">Download here</button>
     </div>
+
+    <script src="../static/app/js/pdf.js"></script>
 </body>
 </html>

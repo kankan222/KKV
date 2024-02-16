@@ -1,10 +1,10 @@
 async function pdfDownload(type) {
-    const id = window.location.search.split('=')[1]
+    // const id = window.location.search.split('=')[1]
     if (type == 'school') {
-        const fet = await fetch(`/pdfdata?pdfid=${id}&type=school`)
-        const res = await fet.json()
-        console.log(res)
-        const htmlContent = `<div class="container"
+        // const fet = await fetch(`/pdfdata?pdfid=${id}&type=school`)
+        // const res = await fet.json()
+        // console.log(res)
+        const htmlContent = `<div class=""
     style="padding: 2rem; border-radius: 5px; position: relative; page-break-after: always; margin: 0; box-sizing: border-box;">
     <page size="A4">
         <div style="padding: 3rem; border: 1px solid black;  border-radius: 5px; outline: 1px solid rgba(0, 0, 0, 0.5);">
@@ -164,13 +164,13 @@ async function pdfDownload(type) {
         const html = document.createElement('div')
         html.innerHTML = htmlContent;
         html2pdf()
-        .from(html)
-        .save(); 
-    }else {
-        const fet = await fetch(`/pdfdata?pdfid=${id}&type=college`)
-        const res = await fet.json()
-        console.log(res)
-        const htmlContent = `<div class="container"
+            .from(html)
+            .save();
+    } else {
+        // const fet = await fetch(`/pdfdata?pdfid=${id}&type=college`)
+        // const res = await fet.json()
+        // console.log(res)
+        const htmlContent = `<div class=""
     style="padding: 2rem; border-radius: 5px; position: relative; page-break-after: always; margin: 0; box-sizing: border-box;">
     <page size="A4">
         <div style="padding: 3rem; border: 1px solid black;  border-radius: 5px; outline: 1px solid rgba(0, 0, 0, 0.5);">
@@ -330,8 +330,8 @@ async function pdfDownload(type) {
         const html = document.createElement('div')
         html.innerHTML = htmlContent;
         html2pdf()
-        .from(html)
-        .save(); 
+            .from(html)
+            .save();
     }
 }
 
