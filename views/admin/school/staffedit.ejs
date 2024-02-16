@@ -18,7 +18,7 @@
     <!-- --HEADER-- -->
     <%- include('../partials/header.ejs') %>
 
-        <main>
+        <main data-app-page="school-staff-edit">
             <!-- --NAV-LISTS-- -->
             <%- include('../partials/nav.ejs') %>
 
@@ -74,6 +74,7 @@
                                 <img src="/static/assets/admin-staff/rector.jp" alt="img">
                                 <input type="file" name="stuff-img">
                                 <a class="btn" onclick="">Upload <i class="uil uil-image-upload"></i></a>
+                                <label for="stuff-img" class="btn">Upload</label>
                             </div>
                             <div class="field">
                                 <select name="category" onchange="showMoreFormdetails(this)">

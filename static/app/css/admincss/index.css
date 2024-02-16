@@ -111,6 +111,7 @@
 .element p{
     font-size: 15px;
     font-weight: 600;
+    word-wrap: break-word;
 }
 .g-grid{
     display: grid;
@@ -142,6 +143,20 @@
     top: 1rem;
     cursor: pointer;
     right: 1rem;
+}
+
+/* ---BIRTH CERTIFICATE MODAL--- */
+.cPopup{
+    /* height: 50vh; */
+    top: 120px;
+}
+.cPopup img{
+    width: 100%;
+    height: auto;
+}
+.cPopup a{
+    margin-bottom: 1rem;
+    float: right;
 }
 /* ---COLLEGE--- */
 .f-grid{

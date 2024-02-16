@@ -16,21 +16,30 @@
 
 .staff-img-grid .field {
     outline: 1px solid var(--primary-outline);
-    /* background: var(--background); */
+    background: var(--white);
     padding: var(--padding-rem-1);
     border-radius: var(--border-radius-1);
     position: relative;
     overflow: hidden;
     align-items: flex-start;
     justify-content: unset;
+    cursor: pointer;
+    transition: all 300ms ease;
 }
 .staff-img-grid .field:hover{
     box-shadow: var(--box-shadow-primary);
+    background: var(--primary-light-color);
 }
-
+.staff-img-grid .field:hover .field-data p span:first-child{
+    color: var(--black);
+}
+.staff-img-grid .field:hover .field-data p span:last-child{
+    color: var(--primary-color);
+}
 .staff-img-grid .field img {
     width: 100px;
     aspect-ratio: 1/1;
+    border: 1px solid var(--primary-outline);
 }
 
 .staff-img-grid .field-data p span:first-child {
@@ -59,6 +68,9 @@
     top: 10px;
     right: 10px;
 }
+.staff-img-grid .field .pen:hover{
+    width: 50px;
+}
 .staff-img-grid .field .trash{
     position: absolute;
     bottom: 10px;
@@ -86,7 +98,7 @@
 /* RESPONSIVE CLASSES */
 @media (max-width: 768px) {
     .staff-img-grid .field-data p {
-        font-size: 12px;
+        font-size: 14px;
     }
     .staff-img-grid {
         grid-template-columns: 1fr;

@@ -11,7 +11,7 @@
     --primary-outline-2: hsla(2, 91%, 36%, 0.1);
     --primary-light-color: hsl(2, 91%, 95%);
     --primary-color-lite: hsl(2, 91%, 90%);
-    --background: hsl(0, 37%, 97%);
+    --background: hsl(0, 37%, 75%);
 
     --green: hsl(160, 100%, 34%);
     --green-outline: hsla(160, 100%, 34%, 0.2);
@@ -68,11 +68,12 @@ body {
     font-family: "Open Sans", sans-serif;
     -webkit-tap-highlight-color: transparent;
     position: relative;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    /* overflow: hidden; */
     background: var(--background);
-    scrollbar-width: thin;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 body.flow {
@@ -95,11 +96,6 @@ img {
 hr {
     outline: 1px solid var(--primary-outline);
 }
-
-/* .wigin {
-    width: 90%;
-    margin: auto;
-} */
 
 .flex {
     display: flex;
@@ -173,15 +169,16 @@ header {
 main {
     position: relative;
     display: grid;
-    grid-template-columns: 15rem 1fr;
+    grid-template-columns: 18rem 1fr;
     margin-top: 4rem;
 }
 
 /* --NAVBAR-- */
 nav {
     background: var(--white);
-    height: 100vh;
+    height: 92vh;
     position: relative;
+    z-index: 50;
 }
 
 nav ul li {
@@ -259,7 +256,7 @@ nav ul li a:last-child:hover {
         top: 0;
         width: 100%;
         left: -100%;
-        background: var(--background);
+        background: var(--white);
         transition: all 300ms ease;
     }
     nav.open{

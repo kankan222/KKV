@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 exports.signinNow = async (req, res) => {
-    if (req.body.user == 'pancha16' && req.body.password == '1234') {
+    if (req.body.user == 'kkv@admin' && req.body.password == 'KKV@2020') {
         const token = jwt.sign({ key : 'panchanan' }, 'shhhhh',  { expiresIn: '1h' });
         res.cookie('token', token);
         res.redirect('/admin/school')

@@ -170,9 +170,17 @@ function renderPopUp(obj, targetClass) {
             <p class="pname">${obj.pincode}</p>
         </div>
     </div>
-    <a class="btn">View Birth Certificate <i class="uil uil-image"></i></a>`
+    <a class="btn" onclick="photoPopup()">View Birth Certificate <i class="uil uil-image"></i></a>`
     document.querySelector(`.${targetClass}`).innerHTML = "";
     document.querySelector(`.${targetClass}`).innerHTML = html
+}
+function photoPopup(){
+    document.querySelector(`.cPopup`).classList.remove(`hide`);
+    document.querySelector(`.mainModal`).classList.add(`hide`);
+}
+function photoHide(){
+    document.querySelector(`.cPopup`).classList.add(`hide`);
+    document.querySelector(`.mainModal`).classList.remove(`hide`);
 }
 
 async function getCollegeEachStudentData(target) {
@@ -300,9 +308,9 @@ function renderCollegeStudentData(obj, targetClass) {
     </div>
     <h4 class="uppercase color">View Documents</h4>
     <div class="g-grid v-btn">
-    <a class="btn">View Birth Certificate <i class="uil uil-image"></i></a>
-    <a class="btn">View Marksheet <i class="uil uil-file-minus"></i></a>
-    <a class="btn">View School Certificate <i class="uil uil-file"></i></a>
+    <a class="btn" onclick="photoPopup()">View Birth Certificate <i class="uil uil-image"></i></a>
+    <a class="btn" onclick="photoPopup()">View Marksheet <i class="uil uil-file-minus"></i></a>
+    <a class="btn" onclick="photoPopup()">View School Certificate <i class="uil uil-file"></i></a>
     </div>`
     document.querySelector(`.${targetClass}`).innerHTML = "";
     document.querySelector(`.${targetClass}`).innerHTML = html
