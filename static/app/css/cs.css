@@ -51,6 +51,10 @@
     border: 1px solid var(--primary-light-color)
 }
 
+.csBox:nth-child(even):not(.short){
+    background: var(--primary-light-color);
+    color: var(--primary-color);
+}
 .csBox p.uppercase {
     margin-bottom: 0;
     font-weight: 700;

@@ -213,6 +213,9 @@ RULES
 .admission .field label{
     font-weight: 500;
 }
+.admission .field label.opacity{
+    opacity: 0;
+}
 .admission h3{
     text-align: center;
     text-decoration: underline;
