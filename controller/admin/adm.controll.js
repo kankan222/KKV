@@ -71,7 +71,7 @@ exports.collegeAdmission = async (req, res) => {
 
    await db.query(q, (err, result) => {
       if (!err) {
-         res.status(200).redirect(`/school/schoolpdf?pdfid=${result.insertId}`)
+         res.status(200).redirect(`/collegepdf?pdfid=${result.insertId}`)
       } else {
          console.log(err)
          res.status(500).send({ msg: 'Some error ocurred!' });

@@ -44,11 +44,11 @@ async function sendStuffData(Id, type) {
   if (type == 'school') {
     const fet = await fetch('/school-stuff-add', { method: 'POST', body: formData})
     const res = await fet.json()
-    if (fet.ok) { closeModalwindow('modal-container-add'); }
+    if (fet.ok) { closeModalwindow('modal-container-add'); window.location.reload() }
   } else {
     const fet = await fetch('/college-stuff-add', { method: 'POST', body: formData })
     const res = await fet.json()
-    if (fet.ok) { closeModalwindow('modal-container-add'); }
+    if (fet.ok) { closeModalwindow('modal-container-add'); window.location.reload() }
   }
 }
 
@@ -105,10 +105,10 @@ function editStuff(target) {
   const qualification = sub[5].childNodes[3].textContent;
   const subject = sub[9].childNodes[3].textContent;
   const form = document.querySelector('#form-ex-edit').childNodes;
-  form[1].childNodes[3].value = name;
-  form[3].childNodes[3].value = position;
-  form[5].childNodes[3].value = qualification;
-  form[7].childNodes[3].value = subject;
+  form[1].childNodes[3].value = name.replace(/^\s+/g, '');
+  form[3].childNodes[3].value = position.replace(/^\s+/g, '');
+  form[5].childNodes[3].value = qualification.replace(/^\s+/g, '');
+  form[7].childNodes[3].value = subject.replace(/^\s+/g, '');
   document.getElementById('stuffImg').src = img
   document.getElementById('edit-category').value = category
   document.querySelector('.tid').id = target.dataset.tid
@@ -125,7 +125,7 @@ async function updateStuff(type) {
     method: 'PUT',
     body: formData
   })
-  if (fet.ok) { closeModalwindow('modal-container-edit') }
+  if (fet.ok) { closeModalwindow('modal-container-edit'); window.location.reload() }
   const res = await fet.json()
 }
 

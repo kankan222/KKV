@@ -27,10 +27,10 @@ router.get('/pdfdata', async (req, res) => {
             }else { res.status(500).send({msg: "Internal server error!"}) }
         })
     }else {
-        const q = `select * from college_student_info where student_id = ${req.query.pdfid}`
+        const q = `select * from college_student_info where id = ${req.query.pdfid}`
         await db.query(q, (err, results)=>{
             if (!err) { res.status(200).send({results})
-            }else { res.status(500).send({msg: "Internal server error!"}) }
+            }else { console.log(err); res.status(500).send({msg: "Internal server error!"}) }
         })
     }
 })

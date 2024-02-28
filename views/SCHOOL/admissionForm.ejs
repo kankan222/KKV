@@ -24,7 +24,7 @@
                 <div class="grid">
                     <div class="field">
                         <label for="name">Name</label>
-                        <input type="text" name="Name" id="name">
+                        <input type="text" name="Name" id="name" required>
                     </div>
                     <div class="field">
                         <label for="date">Date of Birth</label>
@@ -45,9 +45,9 @@
                     <div class="field">
                         <label for="gender">Gender</label>
                         <div class="flex1">
-                            <input type="radio" name="gender" id="male" value="m" required>
+                            <input type="radio" name="gender" id="male" value="male" required>
                             <span>Male</span>
-                            <input type="radio" name="gender" id="female" value="f" required>
+                            <input type="radio" name="gender" id="female" value="female" required>
                             <span>Female</span>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="field">
                         <label for="aadhar">Physical Problems/Disability</label>
-                        <input type="number" name="ph_disability" id="aadhar">
+                        <input type="text" name="ph_disability" id="aadhar">
                     </div>
                 </div>
                 <!-- ----------------------------------------------------- -->
@@ -189,43 +189,43 @@
                             <span>U.K.G.</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="I" required>
                             <span>Class I</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="II" required>
                             <span>Class II</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="III" required>
                             <span>Class III</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="IV" required>
                             <span>Class IV</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="V" required>
                             <span>Class V</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="VI" required>
                             <span>Class VI</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="VII" required>
                             <span>Class VII</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="VIII" required>
                             <span>Class VIII</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="IX" required>
                             <span>Class IX</span>
                         </div>
                         <div class="flex1">
-                            <input type="radio" name="class_enrolled" value="ukg" required>
+                            <input type="radio" name="class_enrolled" value="X" required>
                             <span>Class X</span>
                         </div>
                     </div>
@@ -235,11 +235,11 @@
                 <div class="grid3">
                     <div class="field">
                         <label for="photo">Upload <span class="color">Photo</span></label>
-                        <input type="file" name="sst-photo" id="photo">
+                        <input type="file" name="sst-photo" id="photo" required>
                     </div>
                     <div class="field">
                         <label for="photo">Upload <span class="color">Birth Certificate</span></label>
-                        <input type="file" name="sbc-photo" id="photo">
+                        <input type="file" name="sbc-photo" id="photo" required>
                     </div>
                 </div>
                 <!-- ------------------------------------------------- -->

@@ -54,6 +54,10 @@ router.get('/contact', (req, res) => {
     res.status(200).render(path.join(__dirname,'../views/pages/contactus.ejs'))
 })
 
+router.get('/collegepdf', (req, res) => {
+    res.status(200).render(path.join(__dirname, '../views/admission/collegePDF.ejs'))
+})
+
 
 
 module.exports = router;
