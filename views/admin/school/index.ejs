@@ -17,7 +17,7 @@
     <%- include('../partials/header.ejs') %>
     
     <!-- --MAIN STARTS HERE-- -->
-    <main>
+    <main data-app-page="school">
         <!-- --NAV-LISTS-- -->
         <%- include('../partials/nav.ejs') %>
             <!-- --CONTENT-- -->
@@ -80,6 +80,10 @@
             <div class="modal-container hide">
                 <div class="popupModal mainModal">
 
+                </div>
+                <div class="popupModal cPopup hide">
+                    <a class="btn" onclick="photoHide()">Close</a>
+                    <img src="/static/app/img/moon.jpg" alt="img">
                 </div>
             </div>
         </main>

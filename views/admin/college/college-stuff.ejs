@@ -9,27 +9,27 @@
     <!-- CSS  -->
     <link rel="stylesheet" href="/static/app/css/admincss/header.css">
     <link rel="stylesheet" href="/static/app/css/admincss/modal.css">
-    <link rel="stylesheet" href="/static/app/css/admincss/index.css">
+    <link rel="stylesheet" href="/static/app/css/admincss/adm-staff.css">
     <!-- Icons Css  -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
 </head>
 
 <body>
     <%- include('../partials/college.header.ejs') %>
-        <main>
+        <main data-app-page="college-staff">
             <!-- --NAV-LISTS-- -->
             <%- include('../partials/college.nav.ejs') %>
                 <!-- --CONTENT-- -->
                 <div class="content-container"><!-- for display property -->
-                    <div class="common-container staff-header-container flex">
+                    <div class="staff-header-container common-container flex">
                         <h3 class="uppercase color">College Staff</h3>
                         <a class="btn" onclick="openModalwindow('modal-container-add')">Add <i
                                 class="uil uil-plus-circle"></i></a>
                     </div>
-                    <div class="common-container staff-type-container flex">
+                    <div class="staff-type-container common-container flex">
                         <a class="btn" id="Head-staff" onclick="filterCat(this)">Head-Staff</a>
-                        <a class="btn" id="Non-Teaching-staff" onclick="filterCat(this)">Non-Teaching Staff</i></a>
-                        <a class="btn" id="Teaching-staff" onclick="filterCat(this)">Teaching-Staff</a>
+                        <a class="btn" id="Non-Teaching-staff" onclick="filterCat(this)">Non-Teaching</i></a>
+                        <a class="btn" id="Teaching-staff" onclick="filterCat(this)">Teaching</a>
                     </div>
                     <!-- ---------IMAGE-CONTAINER-------------- -->
                     <div class="staff-img-grid wigin" id="filterCat">
@@ -81,7 +81,7 @@
                                 </div>
                                 <hr>
                                 <div class="field flex">
-                                    <img src="/static/assets/admin-staff/rectr.jpg" alt="img">
+                                    <!-- <img src="/static/assets/admin-staff/rectr.jpg" alt="img"> -->
                                     <input type="file" name="coll-stuff-img" value="herii.jpg">
                                     <a class="btn" onclick="">Upload <i class="uil uil-image-upload"></i></a>
                                 </div>
@@ -118,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- --------EDIT STAFF---------- -->
                     <div class="modal-container hide" id="modal-container-edit">
                         <div class="popupModal">
                             <form id="edit-stuff">
@@ -168,6 +169,7 @@
         </main>
 
         <!-- javascript -->
+        <script src="/static/app/js/index.js"></script>
         <script src="/static/app/js/gal.js"></script>
 </body>
 

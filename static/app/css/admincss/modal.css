@@ -32,7 +32,7 @@
 }
 
 .field {
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
     margin-top: 0.5rem;
     width: 100%;
     position: relative;
@@ -107,4 +107,11 @@ form .pop-grid{
 }
 .field-btns a:last-child:hover{
     box-shadow: var(--box-shadow-red);
+}
+
+
+@media (max-width: 748px){
+    form .pop-grid{
+        grid-template-columns: 1fr;
+    }
 }

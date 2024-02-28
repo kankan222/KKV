@@ -1,13 +1,40 @@
 <nav>
     <ul>
-        <li><a onclick="location.href=`/admin/college`"><i class="uil uil-apps"></i><span>Dashboard</span></a></li>
-        <li><a onclick="location.href=`/admin/school`"><i class="uil uil-university"></i><span>School Section</span></a>
+        <li>
+            <a onclick="location.href=`/admin/college`" data-app-page="college">
+                <i class="uil uil-apps"></i>
+                <span>Dashboard</span>
+            </a>
         </li>
-        <li><a onclick="location.href=``"><i class="uil uil-schedule"></i><span>Attendance</span></a></li>
-        <li><a onclick="location.href=`/college-stuff`"><i
-                    class="uil uil-users-alt"></i><span>Staff</span></a></li>
-        <li><a onclick="location.href=`/coll-gallery`"><i
-                    class="uil uil-image-v"></i><span>Gallery</span></a></li>
-        <li><a onclick="location.href=``"><i class="uil uil-signout"></i><span>Log Out</span></a></li>
+        <li>
+            <a onclick="location.href=`/admin/school`" data-app-page="school">
+                <i class="uil uil-university"></i>
+                <span>School Section</span>
+            </a>
+        </li>
+        <li>
+            <a onclick="location.href=``" data-app-page="college-attendance">
+                <i class="uil uil-schedule"></i>
+                <span>Attendance</span>
+            </a>
+        </li>
+        <li>
+            <a onclick="location.href=`/college-stuff`" data-app-page="college-staff">
+                <i class="uil uil-users-alt"></i>
+                <span>Staff</span>
+            </a>
+        </li>
+        <li>
+            <a onclick="location.href=`/coll-gallery`" data-app-page="college-gallery">
+                <i class="uil uil-image-v"></i>
+                <span>Gallery</span>
+            </a>
+        </li>
+        <li>
+            <a onclick="location.href=``" data-app-page="">
+                <i class="uil uil-signout"></i>
+                <span>Log Out</span>
+            </a>
+        </li>
     </ul>
 </nav>
