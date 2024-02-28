@@ -1,19 +1,13 @@
 async function insertGalleryImage(type) {
   const formData = new FormData(document.getElementById('gallery-img'));
   if (type == 'school') {
-    const fet = await fetch('/insert-school-gallery', {
-      method: 'POST',
-      body: formData
-    })
+    const fet = await fetch('/insert-school-gallery', {  method: 'POST', body: formData })
+    if (fet.ok) { closeModalwindow('img-contain'); window.location.reload() }
     const res = await fet.json()
-    closeModalwindow('img-contain')
   } else {
-    const fet = await fetch('/insert-college-gallery', {
-      method: 'POST',
-      body: formData
-    })
+    const fet = await fetch('/insert-college-gallery', { method: 'POST', body: formData })
+    if (fet.ok) { closeModalwindow('img-contain'); window.location.reload()}
     const res = await fet.json()
-    closeModalwindow('img-contain')
   }
 }
 
