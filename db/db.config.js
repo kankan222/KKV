@@ -3,9 +3,8 @@ const mysql = require('mysql')
 const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'Phpmyadmin@1234567890',
     database: 'kkv_db',
-    port: 3307
 })
 
 conn.connect((err) => {
